@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".CallerListActivity">
 
+    <TextView
+        android:id="@+id/callerListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/callerList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/callerList"
+        android:layout_width="348dp"
+        android:layout_height="438dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="@+id/callerListTitle"
+        app:layout_constraintTop_toTopOf="@+id/callerListTitle" />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="542dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,6 @@
     <string name="search">Search</string>
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
+    <string name="callerList">Caller List</string>
+    <string name="call">Call Selected</string>
 </resources>
