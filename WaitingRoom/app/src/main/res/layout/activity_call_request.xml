@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".CallRequestActivity">
 
+    <EditText
+        android:id="@+id/nameTextEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
+
+    <EditText
+        android:id="@+id/phoneNumberTextEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:ems="10"
+        android:hint="@string/callbackNum"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/reasonTextEdit"
+        app:layout_constraintStart_toStartOf="@+id/nameTextEdit"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextEdit" />
+
+    <EditText
+        android:id="@+id/reasonTextEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="134dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/callReason"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/createButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextEdit" />
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="75dp"
+        android:text="@string/callRequest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reasonTextEdit" />
+
+    <TextView
+        android:id="@+id/headingTextView"
+        android:layout_width="205dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="86dp"
+        android:text="@string/createCall"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameTextEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
