@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Waiting Room</string>
+
+<!--    Business Search Activity    -->
     <string name="search">Search</string>
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
+
     <string name="callerList">Caller List</string>
     <string name="call">Call Selected</string>
+
+<!--    Call Request Activity   -->
+    <string name="callRequest">Request Call</string>
+    <string name="callReason">Reason for Call</string>
+    <string name="callbackNum">Your Phone Number</string>
+    <string name="name">Your Name</string>
+    <string name="createCall">Start a call</string>
+
 </resources>
