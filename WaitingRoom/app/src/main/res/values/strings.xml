@@ -8,6 +8,9 @@
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
 
+    <string name="callerList">Caller List</string>
+    <string name="call">Call Selected</string>
+
 <!--    Call Request Activity   -->
     <string name="callRequest">Request Call</string>
     <string name="callReason">Reason for Call</string>
@@ -17,4 +20,5 @@
 
 <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
+
 </resources>
