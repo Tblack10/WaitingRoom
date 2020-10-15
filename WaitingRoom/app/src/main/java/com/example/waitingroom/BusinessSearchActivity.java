@@ -19,18 +19,23 @@ public class BusinessSearchActivity extends AppCompatActivity {
     }
 
     public void searchForBusiness(View v) {
-        ArrayList<Business> filteredBusiness= new ArrayList<Business>();
+        ArrayList<Business> filteredBusiness = new ArrayList<Business>();
         EditText searchBar = findViewById(R.id.businessInfoTextEdit);
         String searchText = searchBar.getText().toString();
-        
+
         for (Business b: Business.test_businesses) {
             if (b.getName().toUpperCase().contains(searchText.toUpperCase())) {
                 filteredBusiness.add(b);
             }
         }
 
-        Intent intent = new Intent(this, BusinessListActivity.class);
+        Intent intent = new Intent(BusinessSearchActivity.this, BusinessListActivity.class);
         intent.putExtra("businesses", filteredBusiness);
+        startActivity(intent);
+    }
+
+    public void goToBusinessLogin(View v) {
+        Intent intent = new Intent(BusinessSearchActivity.this, BusinessLoginActivity.class);
         startActivity(intent);
     }
 }
