@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Waiting Room</string>
-
+    <string name="loginName">Name</string>
+    <string name="loginPassword">Password</string>
+    <string name="loginButton">Login</string>
 <!--    Business Search Activity    -->
     <string name="search">Search</string>
     <string name="loginOrReg">Login / Register</string>
@@ -15,5 +17,8 @@
     <string name="callbackNum">Your Phone Number</string>
     <string name="name">Your Name</string>
     <string name="createCall">Start a call</string>
+
+<!--    Business Login Activity   -->
+    <string name="businessLogin">Business Login</string>
 
 </resources>
