@@ -21,4 +21,8 @@
 <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
 
+    <!--    Caller Detail Activity   -->
+    <string name="callerNumber">Phone Number: </string>
+    <string name="callerReason">Reason for Call: </string>
+    <string name="callerName">Name: </string>
 </resources>
