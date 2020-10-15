@@ -11,7 +11,10 @@ public class Business {
             new Business("Microsoft 2"),
             new Business("Canadian Amazon"),
             new Business("eXXXonMobil"),
-            new Business("Laundro-hero"),
+            new Business("Apple"),
+            new Business("Microsoft"),
+            new Business("Apple 2"),
+            new Business("Microsoft 3"),
     };
 
 
