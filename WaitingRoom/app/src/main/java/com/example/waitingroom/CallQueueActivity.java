@@ -33,7 +33,7 @@ public class CallQueueActivity extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Intent intent = new Intent(CallQueueActivity.this, CallerDetailActivity.class);
                 intent.putExtra("Customer", Customer.customers_test[position]);
-                Log.d("heyo", "what the fuck is up");
+                Log.d("heyo", "what is up");
                 Log.d("heyo", "" + position);
                 Log.d("heyo", Customer.customers_test[position].getName());
                 startActivity(intent);

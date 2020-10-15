@@ -2,7 +2,13 @@ package com.example.waitingroom;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class BusinessSearchActivity extends AppCompatActivity {
 
@@ -10,5 +16,26 @@ public class BusinessSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_search);
+    }
+
+    public void searchForBusiness(View v) {
+        ArrayList<Business> filteredBusiness = new ArrayList<Business>();
+        EditText searchBar = findViewById(R.id.businessInfoTextEdit);
+        String searchText = searchBar.getText().toString();
+
+        for (Business b: Business.test_businesses) {
+            if (b.getName().toUpperCase().contains(searchText.toUpperCase())) {
+                filteredBusiness.add(b);
+            }
+        }
+
+        Intent intent = new Intent(BusinessSearchActivity.this, BusinessListActivity.class);
+        intent.putExtra("businesses", filteredBusiness);
+        startActivity(intent);
+    }
+
+    public void goToBusinessLogin(View v) {
+        Intent intent = new Intent(BusinessSearchActivity.this, BusinessLoginActivity.class);
+        startActivity(intent);
     }
 }

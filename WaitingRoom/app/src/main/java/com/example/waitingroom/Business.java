@@ -1,9 +1,10 @@
 package com.example.waitingroom;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Business {
+public class Business implements Serializable {
     private String _name;
     private ArrayList<Customer> customers = new ArrayList<Customer>();
 
@@ -11,7 +12,10 @@ public class Business {
             new Business("Microsoft 2"),
             new Business("Canadian Amazon"),
             new Business("eXXXonMobil"),
-            new Business("Laundro-hero"),
+            new Business("Apple"),
+            new Business("Microsoft"),
+            new Business("Apple 2"),
+            new Business("Microsoft 3"),
     };
 
 

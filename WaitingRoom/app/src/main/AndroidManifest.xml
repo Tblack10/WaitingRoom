@@ -13,17 +13,15 @@
         <activity android:name=".CallerListActivity" />
         <activity android:name=".BusinessesOwnedActivity" />
         <activity android:name=".BusinessLoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".CallQueueActivity" />
         <activity android:name=".CallRequestActivity" />
         <activity android:name=".BusinessListActivity" />
         <activity android:name=".BusinessSearchActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
