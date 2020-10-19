@@ -11,9 +11,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="TextView"
+        android:text="@string/callerName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/callerNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/callerNumber"
+        app:layout_constraintStart_toStartOf="@+id/callerName"
+        app:layout_constraintTop_toBottomOf="@+id/callerName" />
+
+    <TextView
+        android:id="@+id/callerReason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:text="@string/callerReason"
+        app:layout_constraintStart_toStartOf="@+id/callerNumber"
+        app:layout_constraintTop_toBottomOf="@+id/callerNumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>

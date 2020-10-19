@@ -23,4 +23,8 @@
 
 <!--    Business List Activity    -->
     <string name="results">Results we found for: </string>
-</resources>
+
+  <!--    Caller Detail Activity   -->
+    <string name="callerNumber">Phone Number: </string>
+    <string name="callerReason">Reason for Call: </string>
+    <string name="callerName">Name: </string>
