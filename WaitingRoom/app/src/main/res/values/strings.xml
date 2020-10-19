@@ -21,4 +21,6 @@
 <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
 
+<!--    Business List Activity    -->
+    <string name="results">Results we found for: </string>
 </resources>
