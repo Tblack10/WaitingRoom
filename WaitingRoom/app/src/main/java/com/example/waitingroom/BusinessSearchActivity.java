@@ -31,6 +31,7 @@ public class BusinessSearchActivity extends AppCompatActivity {
 
         Intent intent = new Intent(BusinessSearchActivity.this, BusinessListActivity.class);
         intent.putExtra("businesses", filteredBusiness);
+        intent.putExtra("query", searchText);
         startActivity(intent);
     }
 
