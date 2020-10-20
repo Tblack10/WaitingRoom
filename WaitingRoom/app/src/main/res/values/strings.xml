@@ -16,7 +16,7 @@
     <string name="callReason">Reason for Call</string>
     <string name="callbackNum">Your Phone Number</string>
     <string name="name">Your Name</string>
-    <string name="createCall">Start a call</string>
+    <string name="createCall">Request a call</string>
 
 <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>

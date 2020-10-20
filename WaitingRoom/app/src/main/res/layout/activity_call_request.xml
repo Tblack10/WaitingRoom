@@ -8,68 +8,97 @@
 
     <EditText
         android:id="@+id/nameTextEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/phoneNumberTextEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/businessLocationTextView" />
 
     <EditText
         android:id="@+id/phoneNumberTextEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/callbackNum"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/reasonTextEdit"
-        app:layout_constraintStart_toStartOf="@+id/nameTextEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextEdit" />
 
     <EditText
         android:id="@+id/reasonTextEdit"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="134dp"
+        android:layout_width="385dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/callReason"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/createButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextEdit" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="75dp"
+        android:layout_width="184dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="114dp"
         android:text="@string/callRequest"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reasonTextEdit" />
 
     <TextView
         android:id="@+id/headingTextView"
-        android:layout_width="205dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginEnd="108dp"
         android:text="@string/createCall"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameTextEdit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/businessNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="129dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
+
+    <TextView
+        android:id="@+id/businessLocationTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="133dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/businessNameTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
