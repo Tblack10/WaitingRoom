@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CallerDetailActivity"></activity>
+        <activity android:name=".PositionInLIneActivity"></activity>
+        <activity android:name=".CallerDetailActivity" />
         <activity android:name=".CallerListActivity" />
         <activity android:name=".BusinessesOwnedActivity" />
-        <activity android:name=".BusinessLoginActivity">
-        </activity>
+        <activity android:name=".BusinessLoginActivity"></activity>
         <activity android:name=".CallQueueActivity" />
         <activity android:name=".CallRequestActivity" />
         <activity android:name=".BusinessListActivity" />
         <activity android:name=".BusinessSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -57,6 +57,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="114dp"
         android:text="@string/callRequest"
+        android:onClick="createCall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reasonTextEdit" />
@@ -78,9 +79,7 @@
         android:id="@+id/businessNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="129dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="24sp"

@@ -3,7 +3,7 @@
     <string name="loginName">Name</string>
     <string name="loginPassword">Password</string>
     <string name="loginButton">Login</string>
-<!--    Business Search Activity    -->
+    <!--    Business Search Activity    -->
     <string name="search">Search</string>
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
@@ -11,20 +11,20 @@
     <string name="callerList">Caller List</string>
     <string name="call">Call Selected</string>
 
-<!--    Call Request Activity   -->
+    <!--    Call Request Activity   -->
     <string name="callRequest">Request Call</string>
     <string name="callReason">Reason for Call</string>
     <string name="callbackNum">Your Phone Number</string>
     <string name="name">Your Name</string>
     <string name="createCall">Request a call</string>
 
-<!--    Business Login Activity   -->
+    <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
 
-<!--    Business List Activity    -->
+    <!--    Business List Activity    -->
     <string name="results">Results we found for: </string>
 
-  <!--    Caller Detail Activity   -->
+    <!--    Caller Detail Activity   -->
     <string name="callerNumber">Phone Number: </string>
     <string name="callerReason">Reason for Call: </string>
     <string name="callerName">Name: </string>
