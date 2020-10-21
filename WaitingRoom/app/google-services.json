@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "252239356664",
+    "firebase_url": "https://waitingroom-452b3.firebaseio.com",
+    "project_id": "waitingroom-452b3",
+    "storage_bucket": "waitingroom-452b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252239356664:android:485f49bc7360c36f47d10d",
+        "android_client_info": {
+          "package_name": "com.example.waitingroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252239356664-5e6jhdaab62406jt1b8g4dgvs0bstssh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOJOWTP6TleBH1TDSy3cuVYvbSnjaQl_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252239356664-5e6jhdaab62406jt1b8g4dgvs0bstssh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
