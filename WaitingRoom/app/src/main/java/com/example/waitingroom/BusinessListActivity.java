@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class BusinessListActivity extends AppCompatActivity {
     ListView listBusinesses;
+    ArrayList<Business> businesses;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class BusinessListActivity extends AppCompatActivity {
         listBusinesses = findViewById(R.id.businessListView);
 
         ArrayAdapter<Business> businessListAdapter;
-        ArrayList<Business> businesses = (ArrayList<Business>) getIntent().getExtras().get("businesses");
+        businesses = (ArrayList<Business>) getIntent().getExtras().get("businesses");
 
         businessListAdapter = new ArrayAdapter<Business>(
                 BusinessListActivity.this, android.R.layout.simple_list_item_1, businesses
@@ -52,6 +53,8 @@ public class BusinessListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(BusinessListActivity.this, CallRequestActivity.class);
+                intent.putExtra("businessName", businesses.get(i).getName());
+
                 startActivity(intent);
             }
         });
