@@ -1,29 +1,27 @@
 package com.example.waitingroom;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Caller {
+public class Caller implements Serializable {
     private String _name;
-    private ArrayList<Customer> _callerQueue = new ArrayList<Customer>();
+    private String _phoneNum;
+    private String _reasonForCall;
 
-    public static final Caller[] test_businesses = {
-            new Caller("Microsoft 2"),
-            new Caller("Canadian Amazon"),
-            new Caller("eXXXonMobil"),
-            new Caller("Laundro-hero"),
-    };
-
-
-
-    // Each country has a name, description and an image resource
-    private Caller(String name) {
+    //Constructors
+    private Caller(String name, String _phoneNum, String _reasonForCall) {
         _name = name;
-
     }
 
+    //Getters and Setters
     public String getName() { return _name; }
-    public ArrayList<Customer> getCustomers() {
-        return _callerQueue;
-    }
+    public String getPhoneNum() { return _phoneNum; }
+    public String getReason() { return _reasonForCall; }
+
+    public void setName(String name) { _name = name; }
+    public void setPhoneNum(String phoneNum) { _phoneNum = phoneNum; }
+    public void setReason(String reasonForCall) { _reasonForCall = reasonForCall; }
+
+
     public String toString() { return _name; }
 }
