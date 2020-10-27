@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PositionInLIneActivity"></activity>
+        <activity android:name=".BusinessCreateUser"></activity>
+        <activity android:name=".BusinessRegistrationActivity" />
+        <activity android:name=".PositionInLIneActivity" />
         <activity android:name=".CallerDetailActivity" />
         <activity android:name=".CallerListActivity" />
         <activity android:name=".BusinessesOwnedActivity" />
-        <activity android:name=".BusinessLoginActivity"></activity>
+        <activity android:name=".BusinessLoginActivity" />
         <activity android:name=".CallQueueActivity" />
         <activity android:name=".CallRequestActivity" />
         <activity android:name=".BusinessListActivity" />

@@ -25,4 +25,9 @@ public class BusinessLoginActivity extends AppCompatActivity {
         intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
         startActivity(intent);
     }
+
+    public void register(View v) {
+        Intent intent = new Intent(BusinessLoginActivity.this, BusinessCreateUser.class);
+        startActivity(intent);
+    }
 }
