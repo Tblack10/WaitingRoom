@@ -38,18 +38,9 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Customers");
 
-//        Map<String,Object> taskMap = new HashMap<>();
-//        taskMap.put("username", username.getText().toString());
-//        taskMap.put("password", password.getText().toString());
-//        myRef.updateChildren(taskMap);
-
-        Business[] myBusinesses =  {
-                new Business("Microsoft 2"),
-                new Business("Canadian Amazon"),
-        };
-
         Map<String, Customer> taskMap = new HashMap<>();
-        taskMap.put(usernameString, new Customer(usernameString, passwordString, "6049119111", Arrays.asList(myBusinesses)));
+        taskMap.put(usernameString, new Customer(usernameString, passwordString, "6049119111", Business.test_businesses));
         myRef.child(usernameString).setValue(taskMap);
     }
+
 }

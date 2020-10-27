@@ -8,10 +8,12 @@ public class Caller implements Serializable {
     private String _phoneNum;
     private String _reasonForCall;
 
+    //Constructors
     private Caller(String name, String _phoneNum, String _reasonForCall) {
         _name = name;
     }
 
+    //Getters and Setters
     public String getName() { return _name; }
     public String getPhoneNum() { return _phoneNum; }
     public String getReason() { return _reasonForCall; }
