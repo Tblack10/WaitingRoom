@@ -1,12 +1,15 @@
 package com.example.waitingroom;
 
+import android.telecom.Call;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Business implements Serializable {
     private String _name;
-    private ArrayList<Customer> customers = new ArrayList<Customer>();
+    private ArrayList<Caller> queue = new ArrayList<Caller>();
+
 
     public static final Business[] test_businesses = {
             new Business("Microsoft 2"),
@@ -20,14 +23,14 @@ public class Business implements Serializable {
 
 
 
-    // Each country has a name, description and an image resource
-    private Business(String name) {
+    public Business(String name) {
         _name = name;
     }
 
     public String getName() { return _name; }
-    public ArrayList<Customer> getCustomers() {
-        return customers;
+    public ArrayList<Caller> getQueue() {
+        return queue;
     }
+
     public String toString() { return _name; }
 }
