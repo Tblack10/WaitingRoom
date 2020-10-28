@@ -24,30 +24,14 @@ public class BusinessesOwnedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_businesses_owned);
 
         username = (String) getIntent().getExtras().get("username");
-        queryDatabaseForCustomer(username);
+        NetworkManager.queryDatabaseForCustomer(username, new MyCallback() {
+            @Override
+            public void onCallback(Customer customer) {
+                System.out.println(customer.getID());
+            }
+        });
     }
 
-    public void queryDatabaseForCustomer(String username) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
-        Query query = myRef.child("Customers").orderByChild("name").equalTo(username);
-
-        ValueEventListener customerListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    System.out.println(ds.getValue(Customer.class).getID());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting User failed, log a message
-
-            }
-        };
-        query.addListenerForSingleValueEvent(customerListener);
-    }
 
 
 
