@@ -42,16 +42,22 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         usernameString = username.getText().toString();
         passwordString = password.getText().toString();
 
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Customers");
 
-        Map<String, Customer> taskMap = new HashMap<>();
-        taskMap.put(usernameString, new Customer(usernameString, passwordString, "6049119111", Business.test_businesses));
-        myRef.child(usernameString).setValue(taskMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+        final Customer customer = new Customer(myRef.push().getKey(), usernameString, passwordString, "6049119111", Business.test_businesses);
+
+//        Map<String, Customer> taskMap = new HashMap<>();
+//        taskMap.put(customer.getID(), customer);
+
+        myRef.child(customer.getID()).setValue(customer).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Intent intent = new Intent(BusinessCreateUserActivity.this, BusinessesOwnedActivity.class);
-                startActivity(intent);            }
+                intent.putExtra("username", customer.getName());
+                startActivity(intent);
+            }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {

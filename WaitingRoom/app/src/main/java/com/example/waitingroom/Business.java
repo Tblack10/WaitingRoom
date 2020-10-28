@@ -19,6 +19,7 @@ public class Business implements Serializable {
     public Business(String name) {
         _name = name;
     }
+    public Business() {};
 
     //Getters & Setters
     public String getName() { return _name; }
