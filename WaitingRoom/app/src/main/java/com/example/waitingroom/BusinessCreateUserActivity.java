@@ -1,11 +1,18 @@
 package com.example.waitingroom;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -40,7 +47,17 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
 
         Map<String, Customer> taskMap = new HashMap<>();
         taskMap.put(usernameString, new Customer(usernameString, passwordString, "6049119111", Business.test_businesses));
-        myRef.child(usernameString).setValue(taskMap);
+        myRef.child(usernameString).setValue(taskMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Intent intent = new Intent(BusinessCreateUserActivity.this, BusinessesOwnedActivity.class);
+                startActivity(intent);            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(BusinessCreateUserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            };
+        });
     }
 
 }
