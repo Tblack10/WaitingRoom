@@ -17,7 +17,7 @@ public class NetworkManager{
     static public void queryDatabaseForCustomer(String username, final MyCallback callback) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-        Query query = myRef.child("Customers").orderByChild("name").equalTo("UserOne");
+        Query query = myRef.child("Customers").orderByChild("name").equalTo(username);
 
         ValueEventListener customerListener = new ValueEventListener() {
             @Override
