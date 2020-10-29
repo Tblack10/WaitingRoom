@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * BusinessListActivity displays all businesses contained in the intent
+ * in a list format. Businesses are clickable to go to their respective
+ * request call page.
+ */
 public class BusinessListActivity extends AppCompatActivity {
     ListView listBusinesses;
     ArrayList<Business> businesses;

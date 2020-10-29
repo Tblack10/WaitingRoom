@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * CallRequestActivity shows the businesses details and prompts
+ * for input of name, phone, and reason for call before requesting a
+ * call from the business.
+ */
 public class CallRequestActivity extends AppCompatActivity {
 
 

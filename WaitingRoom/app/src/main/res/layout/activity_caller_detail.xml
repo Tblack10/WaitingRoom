@@ -34,4 +34,16 @@
         android:text="@string/callerReason"
         app:layout_constraintStart_toStartOf="@+id/callerNumber"
         app:layout_constraintTop_toBottomOf="@+id/callerNumber" />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="212dp"
+        android:text="@string/callBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onCall"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
