@@ -1,5 +1,7 @@
 package com.example.waitingroom;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,9 @@ import java.util.List;
 /**
  * Customer has Businesses which has a queue of Callers
  */
+@IgnoreExtraProperties
 public class Customer implements Serializable {
+    private String _id;
     private String _name;
     private String _password;
     private String _phoneNumber;
@@ -20,20 +24,24 @@ public class Customer implements Serializable {
         _password = password;
     }
 
-    public Customer(String name, String password, String phoneNumber, ArrayList<Business> businesses) {
+    public Customer(String id, String name, String password, String phoneNumber, ArrayList<Business> businesses) {
+        _id = id;
         _name = name;
         _password = password;
         _phoneNumber = phoneNumber;
         _businesses = businesses;
-
     }
 
+    public Customer() {};
+
     //Getters and Setters
+    public String getID() { return _id; }
     public String getName() { return _name; }
     public String getPassword() { return _password; };
     public String getPhoneNumber() { return _phoneNumber; }
-    public List<Business> getBusinesses() { return _businesses; }
+    public ArrayList<Business> getBusinesses() { return _businesses; }
 
+    public void setID(String id) { _id = id; }
     public void setName(String name) { _name = name; }
     public void setPassword(String password) { _password = password; };
     public void setPhoneNumber(String phoneNumber) { _phoneNumber = phoneNumber; }
