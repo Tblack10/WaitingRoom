@@ -19,7 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * BusinessCreateUserActivity is for registering new employees to a business
+ */
 public class BusinessCreateUserActivity extends AppCompatActivity {
     TextView username;
     TextView password;

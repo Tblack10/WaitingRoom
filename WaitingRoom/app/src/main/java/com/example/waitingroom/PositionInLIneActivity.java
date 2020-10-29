@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ * PositionInLIneActivity displays your current position in the caller queue
+ */
 public class PositionInLIneActivity extends AppCompatActivity {
 
     @Override

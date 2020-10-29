@@ -13,6 +13,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * CallQueueActivity displays the list of customers requesting calls
+ * clicking on a customer will display their details.
+ */
 public class CallQueueActivity extends ListActivity {
 
     @Override

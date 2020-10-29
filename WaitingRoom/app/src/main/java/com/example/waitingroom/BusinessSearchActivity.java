@@ -13,6 +13,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+/**
+ * BusinessSearchActivity is our main activity, used to either
+ * search for businesses to call or to login/register businesses
+ */
 public class BusinessSearchActivity extends AppCompatActivity {
 
     @Override
