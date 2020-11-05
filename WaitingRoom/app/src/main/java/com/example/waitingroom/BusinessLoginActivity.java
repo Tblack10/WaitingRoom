@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,17 +34,20 @@ public class BusinessLoginActivity extends AppCompatActivity {
         final TextView passwordField = findViewById(R.id.password);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Employees");
-
+        Log.d("ayyyyy", "LMAO");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("ayyyyy", "LMAO");
                 HashMap<String, Object> empMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                Log.d("heyo", empMap.values().toString());
                 Caller check = (Caller) empMap.get(nameField.getText().toString());
+
                 if(check.getPassword().equals(passwordField.getText().toString())) {
                     Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
                     intent.putExtra("NAME_ID", "" + nameField.getText().toString());
                     intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
-                    startActivity(intent);
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(BusinessLoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
                 }

@@ -52,8 +52,10 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
                 return;
             }
         });
-        DatabaseReference myRef2 = database.getReference("Employees").push();
-        myRef2.setValue(admin).addOnFailureListener(new OnFailureListener() {
+        DatabaseReference myRef2 = database.getReference("Employees");
+        HashMap<String, Object> empMap= new HashMap<>();
+        empMap.put(admin.getName(), admin);
+        myRef2.updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(BusinessRegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
