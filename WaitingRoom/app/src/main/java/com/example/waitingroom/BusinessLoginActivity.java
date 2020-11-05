@@ -35,22 +35,25 @@ public class BusinessLoginActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Employees");
         Log.d("ayyyyy", "LMAO");
+
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d("ayyyyy", "LMAO");
                 HashMap<String, Object> empMap = (HashMap<String, Object>) dataSnapshot.getValue();
-                Log.d("heyo", empMap.values().toString());
-                Caller check = (Caller) empMap.get(nameField.getText().toString());
-
-                if(check.getPassword().equals(passwordField.getText().toString())) {
-                    Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
-                    intent.putExtra("NAME_ID", "" + nameField.getText().toString());
-                    intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
-//                    startActivity(intent);
-                } else {
-                    Toast.makeText(BusinessLoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
+                if (empMap.containsKey(passwordField.getText().toString())) {
+                    Caller check = new Caller((HashMap<String,String>)empMap.get(passwordField.getText().toString()));
+                    Log.d("heyo", check.getName());
+                    if(check.getPassword().equals(passwordField.getText().toString())) {
+                        Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
+                        intent.putExtra("NAME_ID", "" + nameField.getText().toString());
+                        intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(BusinessLoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
+                    }
                 }
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

@@ -3,37 +3,35 @@ package com.example.waitingroom;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Customers are the people that call in to the app.
  */
 @IgnoreExtraProperties
 public class Customer implements Serializable {
-    private String _name;
-    private String _phoneNumber;
-    private String _reason;
+    private String name;
+    private String phoneNumber;
+    private String reason;
 
 
     //Constructors
     private Customer(String name, String phoneNumber, String reason) {
-        _name = name;
-        _phoneNumber = phoneNumber;
-        _reason = reason;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.reason = reason;
     }
 
-    public Customer() {};
+    public Customer() {}
 
     //Getters and Setters
-    public String getName() { return _name; }
-    public String getPhoneNumber() { return _phoneNumber; }
+    public String getName() { return name; }
+    public String getPhoneNumber() { return phoneNumber; }
 
-    public void setName(String name) { _name = name; }
-    public void setPhoneNumber(String phoneNumber) { _phoneNumber = phoneNumber; }
+    public void setName(String name) { this.name = name; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public String getReason() { return _reason; }
-    public String toString() { return _name; }
+    public String getReason() { return reason; }
+    public String toString() { return name; }
 
 
     public static final Customer[] customers_test = {
