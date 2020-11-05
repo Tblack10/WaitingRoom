@@ -26,38 +26,57 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
     TextView username;
     TextView password;
     TextView passwordConfirm;
+    Business business;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_create_user);
+        business = (Business) getIntent().getSerializableExtra("business");
     }
 
 
     public void createUser(View v) {
         String usernameString;
         String passwordString;
+        String confirmPasswordString;
 
         username = findViewById(R.id.usernameTextField);
         password = findViewById(R.id.passwordTextField);
+        passwordConfirm = findViewById(R.id.confirmPasswordTextField);
 
         usernameString = username.getText().toString();
         passwordString = password.getText().toString();
+        confirmPasswordString = passwordConfirm.getText().toString();
 
+        //Validation
+        //TODO make sure username is unique in db
+        if(!passwordString.equals(confirmPasswordString)){
+            Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Customers");
+        DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
 
-        final Customer customer = new Customer(myRef.push().getKey(), usernameString, passwordString, "6049119111", Business.test_businesses);
+        final Caller employee = new Caller(usernameString, passwordString, business.getName());
 
-//        Map<String, Customer> taskMap = new HashMap<>();
-//        taskMap.put(customer.getID(), customer);
+        Map<String, Object> empMap = new HashMap<>();
+        empMap.put(employee.getName(), employee);
 
-        myRef.child(customer.getID()).setValue(customer).addOnSuccessListener(new OnSuccessListener<Void>() {
+        myRef.child(business.getName()).child("Employees").child(employee.getName()).updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(BusinessCreateUserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                return;
+            };
+        });
+
+        DatabaseReference myRef2 = database.getReference("Employees");
+        myRef2.updateChildren(empMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Intent intent = new Intent(BusinessCreateUserActivity.this, BusinessesOwnedActivity.class);
-                intent.putExtra("username", customer.getName());
                 startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {

@@ -8,8 +8,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+
 /**
- * BusinessLoginActivity is a login page for businesses, also contains
+ * BusinessLoginActivity is a login page for employees, also contains
  * register button for businesses.
  */
 public class BusinessLoginActivity extends AppCompatActivity {
@@ -21,21 +29,34 @@ public class BusinessLoginActivity extends AppCompatActivity {
     }
 
     public void login(View v) {
-        TextView nameField = findViewById(R.id.name);
-        TextView passwordField = findViewById(R.id.password);
-        TextView passwordMatch = findViewById(R.id.confirmPasswordTextField);
-        if(passwordField.getText().toString().equals(passwordMatch.getText().toString())) {
-            Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
-            intent.putExtra("NAME_ID", "" + nameField.getText().toString());
-            intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_SHORT).show();
-        }
+        final TextView nameField = findViewById(R.id.name);
+        final TextView passwordField = findViewById(R.id.password);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Employees");
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                HashMap<String, Object> empMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                Caller check = (Caller) empMap.get(nameField.getText().toString());
+                if(check.getPassword().equals(passwordField.getText().toString())) {
+                    Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
+                    intent.putExtra("NAME_ID", "" + nameField.getText().toString());
+                    intent.putExtra("PASSWORD_ID", "" + passwordField.getText().toString());
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(BusinessLoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void register(View v) {
-        Intent intent = new Intent(BusinessLoginActivity.this, BusinessCreateUserActivity.class);
+        Intent intent = new Intent(BusinessLoginActivity.this, BusinessRegistrationActivity.class);
         startActivity(intent);
     }
 }

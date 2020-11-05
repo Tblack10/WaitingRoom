@@ -19,12 +19,11 @@ public class CallerDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caller_detail);
         Intent i = getIntent();
-        //i have a feeling this should be caller not customer
         customer = (Customer)i.getSerializableExtra("Customer");
-        TextView customerName = findViewById(R.id.callerName);
+        TextView customerName = findViewById(R.id.customerName);
         customerName.setText(customer.getName());
-        TextView customerReason = findViewById(R.id.callerReason);
-        //customerReason.setText();
+        TextView customerReason = findViewById(R.id.customerReason);
+        customerReason.setText(customer.getReason());
     }
 
     public void onCall(View v){

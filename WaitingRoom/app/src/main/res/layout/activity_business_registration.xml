@@ -6,4 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".BusinessRegistrationActivity">
 
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="89dp"
+        android:onClick="registerBusiness"
+        android:text="@string/registerBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/businessNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="103dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BusinessName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/businessLocationInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/businessLocationTextView"
+        app:layout_constraintTop_toBottomOf="@+id/businessNameInput" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="54dp"
+        android:text="@string/registerBusiness"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/BusinessName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="11dp"
+        android:text="@string/businessName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/businessNameInput"
+        app:layout_constraintEnd_toStartOf="@+id/businessNameInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/businessLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:text="@string/businessLocation"
+        app:layout_constraintBaseline_toBaselineOf="@+id/businessLocationInput"
+        app:layout_constraintEnd_toStartOf="@+id/businessLocationInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/adminPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adminPassTV"
+        app:layout_constraintTop_toBottomOf="@+id/adminUsernameInput" />
+
+    <TextView
+        android:id="@+id/adminPassTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/adminPass"
+        app:layout_constraintBaseline_toBaselineOf="@+id/adminPasswordInput"
+        app:layout_constraintEnd_toStartOf="@+id/adminPasswordInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/adminUsernameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/admin"
+        app:layout_constraintBaseline_toBaselineOf="@+id/adminUsernameInput"
+        app:layout_constraintEnd_toStartOf="@+id/adminUsernameInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/adminUsernameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adminUsernameTV"
+        app:layout_constraintTop_toBottomOf="@+id/businessLocationInput" />
+
+    <TextView
+        android:id="@+id/adminPassConfirmTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/adminPassConfirm"
+        app:layout_constraintBottom_toBottomOf="@+id/adminPasswordConfirmInput"
+        app:layout_constraintEnd_toStartOf="@+id/adminPasswordConfirmInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/adminPasswordConfirmInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adminPassConfirmTV"
+        app:layout_constraintTop_toBottomOf="@+id/adminPasswordInput" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
