@@ -42,4 +42,12 @@ public class Caller implements Serializable {
 
     }
     public String toString() { return _name; }
+
+    public String getEmployer() {
+        return _employer;
+    }
+
+    public void setEmployer(String _employer) {
+        this._employer = _employer;
+    }
 }

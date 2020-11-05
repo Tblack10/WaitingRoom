@@ -42,8 +42,10 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
         Business business = new Business(businessName.getText().toString(), businessLocation.getText().toString(), admin);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Businesses").push();
-        myRef.setValue(business).addOnFailureListener(new OnFailureListener() {
+        HashMap<String, Object> busMap= new HashMap<>();
+        busMap.put(business.getName(), business);
+        DatabaseReference myRef = database.getReference("Businesses");
+        myRef.updateChildren(busMap).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(BusinessRegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
