@@ -30,7 +30,7 @@ public class BusinessSearchActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.businessInfoTextEdit);
         String searchText = searchBar.getText().toString();
 
-        for (Business b: Business.test_businesses) {
+        for (Business b: Business.businesses_test) {
             if (b.getName().toUpperCase().contains(searchText.toUpperCase())) {
                 filteredBusiness.add(b);
             }

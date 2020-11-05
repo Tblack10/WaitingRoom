@@ -26,6 +26,8 @@
     <string name="results">Results we found for: </string>
 
     <!--    Caller Detail Activity   -->
+    <string name="requestTitle">Title: </string>
+    <string name="requestDescription">Reason for Call: </string>
     <string name="callerNumber">Phone Number: </string>
     <string name="callerReason">Reason for Call: </string>
     <string name="callerName">Name: </string>

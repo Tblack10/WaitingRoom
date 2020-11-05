@@ -12,34 +12,34 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * CallQueueActivity displays the list of customers requesting calls
  * clicking on a customer will display their details.
  */
-public class CallQueueActivity extends ListActivity {
+public class CallQueueActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_call_queue);
         int i = 1;
-        ArrayList<String> tempNames = new ArrayList<String>();
-        for (int index = 0; index < Customer.customers_test.length; index++) {
-            tempNames.add(Customer.customers_test[index].getName());
-        }
-        ArrayAdapter<String> arrayAdapter;
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempNames);
 
-        ListView list = getListView();
+        RequestAdapter arrayAdapter;
+
+        ArrayList<Request> requestList = new ArrayList<Request>();
+        Collections.addAll(requestList, Request.requests_test);
+        arrayAdapter = new RequestAdapter(this, requestList);
+
+        ListView list = findViewById(R.id.list);
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Request temp = (Request) parent.getAdapter().getItem(position);
                 Intent intent = new Intent(CallQueueActivity.this, CallerDetailActivity.class);
-                intent.putExtra("Customer", Customer.customers_test[position]);
-                Log.d("heyo", "what is up");
-                Log.d("heyo", "" + position);
-                Log.d("heyo", Customer.customers_test[position].getName());
+                intent.putExtra("Request", temp);
                 startActivity(intent);
             }
         });

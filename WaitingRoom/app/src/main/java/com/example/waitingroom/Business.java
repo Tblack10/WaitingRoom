@@ -40,13 +40,13 @@ public class Business implements Serializable {
 
 
     public String toString() { return name; }
-
-    public static final ArrayList<Business> test_businesses =  new ArrayList<>( Arrays.asList(
+    public static final Business[] businesses_test = {
             new Business("Microsoft 2"),
             new Business("Canadian Amazon"),
             new Business("eXXXonMobil"),
             new Business("Apple"),
             new Business("Microsoft"),
             new Business("Apple 2"),
-            new Business("Microsoft 3") ));
+            new Business("Microsoft 3")
+    };
 }

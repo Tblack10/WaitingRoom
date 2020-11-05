@@ -13,24 +13,28 @@ import android.widget.TextView;
  * and reason for call.
  */
 public class CallerDetailActivity extends AppCompatActivity {
-    private Customer customer;
+    private Request request;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caller_detail);
         Intent i = getIntent();
-        customer = (Customer)i.getSerializableExtra("Customer");
+        request = (Request)i.getSerializableExtra("Request");
+        TextView requestTitle = findViewById(R.id.requestTitle);
+        requestTitle.setText(request.getTitle());
+        TextView requestDescription = findViewById(R.id.requestDescription);
+        requestDescription.setText(request.getDescription());
         TextView customerName = findViewById(R.id.customerName);
-        customerName.setText(customer.getName());
-        TextView customerReason = findViewById(R.id.customerReason);
-        customerReason.setText(customer.getReason());
+        customerName.setText(request.getCustomer().getName());
+        TextView customerPhoneNumber = findViewById(R.id.customerPhoneNumber);
+        customerPhoneNumber.setText(request.getCustomer().getPhoneNumber());
     }
 
     public void onCall(View v){
         //TODO: remove this customer from queue
 
         Intent phoneIntent = new Intent(Intent.ACTION_CALL);
-        phoneIntent.setData(Uri.parse("tel:" + customer.getPhoneNumber()));
+        phoneIntent.setData(Uri.parse("tel:" + request.getCustomer().getPhoneNumber()));
         startActivity(phoneIntent);
     }
 }
