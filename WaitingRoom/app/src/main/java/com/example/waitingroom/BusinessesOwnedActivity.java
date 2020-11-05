@@ -33,7 +33,7 @@ public class BusinessesOwnedActivity extends AppCompatActivity {
         NetworkManager.queryDatabaseForCustomer(username, new MyCallback() {
             @Override
             public void onCallback(Customer customer) {
-                businesses = customer.getBusinesses();
+                //businesses = customer.getBusinesses();
                 configureListAdapter();
                 setWelcomeMessage(customer.getName());
             }

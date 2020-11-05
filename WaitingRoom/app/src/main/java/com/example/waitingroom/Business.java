@@ -1,46 +1,52 @@
 package com.example.waitingroom;
 
-import android.telecom.Call;
-
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+/**
+ * Business
+ */
 public class Business implements Serializable {
-
-    private String _name;
-    private String _location;
-    private ArrayList<Caller> _queue = new ArrayList<Caller>();
-
+    private String name;
+    private String location;
+    private ArrayList<Customer> queue = new ArrayList<>();
+    private ArrayList<Caller> employees = new ArrayList<>();
 
     //Constructors
     public Business(String name) {
-        _name = name;
+        this.name = name;
     }
-    public Business() {};
+    public Business(String name, String location, Caller admin){
+        this.name = name;
+        this.location = location;
+        admin.setAdmin(true);
+        employees.add(admin);
+    }
+    public Business() {}
 
     //Getters & Setters
-    public String getName() { return _name; }
-    public String getLocation() { return _location; }
-    public ArrayList getQueue() {
-        return _queue;
+    public String getName() { return name; }
+    public String getLocation() { return location; }
+    public ArrayList<Customer> getQueue() {
+        return queue;
     }
-
-    public void setName(String name) { _name = name; }
-    public void setLocation(String location) { _name = location; }
-    public void setQueue(ArrayList queue) { _queue = queue; }
+    public ArrayList<Caller> getEmployees(){return employees;}
 
 
-    public String toString() { return _name; }
+    public void setName(String name) { this.name = name; }
+    public void setLocation(String location) { name = location; }
+    public void setQueue(ArrayList<Customer> queue) { this.queue = queue; }
 
-    public static final ArrayList<Business> test_businesses =  new ArrayList<Business>( Arrays.asList(
+
+    public String toString() { return name; }
+    public static final Business[] businesses_test = {
             new Business("Microsoft 2"),
             new Business("Canadian Amazon"),
             new Business("eXXXonMobil"),
             new Business("Apple"),
             new Business("Microsoft"),
             new Business("Apple 2"),
-            new Business("Microsoft 3") ));
+            new Business("Microsoft 3")
+    };
 }

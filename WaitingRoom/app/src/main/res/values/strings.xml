@@ -26,10 +26,19 @@
     <string name="results">Results we found for: </string>
 
     <!--    Caller Detail Activity   -->
+    <string name="requestTitle">Title: </string>
+    <string name="requestDescription">Reason for Call: </string>
     <string name="callerNumber">Phone Number: </string>
     <string name="callerReason">Reason for Call: </string>
     <string name="callerName">Name: </string>
     <string name="callBtn">Call</string>
 
     <string name="createAccount">Create an Account</string>
+    <string name="registerBusiness">Register a Business With Us!</string>
+    <string name="businessName">Name of business</string>
+    <string name="businessLocation">Business location</string>
+    <string name="registerBtn">Register!</string>
+    <string name="admin">Admin username</string>
+    <string name="adminPass">Admin Password</string>
+    <string name="adminPassConfirm">Confirm password</string>
 </resources>

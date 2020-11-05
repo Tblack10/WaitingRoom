@@ -10,12 +10,10 @@
         android:id="@+id/heading"
         android:layout_width="294dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
         android:text="@string/app_name"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/businessInfoTextEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,12 +21,11 @@
         android:id="@+id/searchButton"
         android:layout_width="140dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Search"
         android:onClick="searchForBusiness"
-        app:layout_constraintBottom_toTopOf="@+id/loginOrRegButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/businessInfoTextEdit" />
 
@@ -37,25 +34,22 @@
         android:layout_width="145dp"
         android:layout_height="40dp"
         android:layout_marginBottom="90dp"
-        android:text="@string/loginOrReg"
         android:onClick="goToBusinessLogin"
+        android:text="@string/loginOrReg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton" />
+        app:layout_constraintTop_toBottomOf="@+id/searchButton"
+        app:layout_constraintVertical_bias="0.069" />
 
     <EditText
         android:id="@+id/businessInfoTextEdit"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="43dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="@string/placeholderTextSearch"
-        app:layout_constraintBottom_toTopOf="@+id/searchButton"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading" />
 
