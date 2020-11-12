@@ -3,41 +3,33 @@ package com.example.waitingroom;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BusinessesOwnedActivity extends AppCompatActivity {
     String username;
+    Caller admin;
     ArrayList<Business> businesses;
     ListView listBusinesses;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_businesses_owned);
-
-        username = (String) getIntent().getExtras().get("username");
-
-        NetworkManager.queryDatabaseForCustomer(username, new MyCallback() {
-            @Override
-            public void onCallback(Customer customer) {
-                //businesses = customer.getBusinesses();
-                configureListAdapter();
-                setWelcomeMessage(customer.getName());
-            }
-        });
+        admin = (Caller) getIntent().getSerializableExtra("USER");
+        username = admin.getName();
+        setWelcomeMessage(username);
+//        NetworkManager.queryDatabaseForCustomer(username, new MyCallback() {
+//            @Override
+//            public void onCallback(Customer customer) {
+//                //businesses = customer.getBusinesses();
+//                configureListAdapter();
+//                setWelcomeMessage(customer.getName());
+//            }
+//        });
 
     }
 

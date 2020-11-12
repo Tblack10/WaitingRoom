@@ -1,5 +1,7 @@
 package com.example.waitingroom;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,10 +21,13 @@ public class Caller implements Serializable {
         this.employer = employer;
         this.password = password;
     }
-    public Caller(HashMap<String, String> map) {
-        this.name = map.get("name");
-        this.employer = map.get("employer");
-        this.password = map.get("password");
+    public Caller(HashMap<String, Object> map) {
+        this.name = (String) map.get("name");
+        Log.e("a", name);
+        this.employer = (String) map.get("employer");
+        Log.e("a", employer);
+        this.password = (String) map.get("password");
+        this.admin = (boolean) map.get("admin");
     }
     public Caller(){}
 
