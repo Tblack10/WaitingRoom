@@ -1,8 +1,7 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.waitingroom.customer.CallRequestActivity;
+import com.example.waitingroom.R;
+import com.example.waitingroom.types.Business;
 
 import java.util.ArrayList;
 

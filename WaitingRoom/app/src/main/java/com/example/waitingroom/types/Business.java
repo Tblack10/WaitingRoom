@@ -1,8 +1,7 @@
-package com.example.waitingroom;
+package com.example.waitingroom.types;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Business

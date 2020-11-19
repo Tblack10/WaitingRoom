@@ -1,4 +1,4 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.waitingroom.R;
+import com.example.waitingroom.types.Request;
 
 /**
  * CallerDetailActivity displays a customer's details such as name, number,
@@ -20,21 +23,19 @@ public class CallerDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_caller_detail);
         Intent i = getIntent();
         request = (Request)i.getSerializableExtra("Request");
-        TextView requestTitle = findViewById(R.id.requestTitle);
-        requestTitle.setText(request.getTitle());
         TextView requestDescription = findViewById(R.id.requestDescription);
         requestDescription.setText(request.getDescription());
         TextView customerName = findViewById(R.id.customerName);
-        customerName.setText(request.getCustomer().getName());
+        customerName.setText(request.getName());
         TextView customerPhoneNumber = findViewById(R.id.customerPhoneNumber);
-        customerPhoneNumber.setText(request.getCustomer().getPhoneNumber());
+        customerPhoneNumber.setText(request.getPhoneNumber());
     }
 
     public void onCall(View v){
         //TODO: remove this customer from queue
 
         Intent phoneIntent = new Intent(Intent.ACTION_CALL);
-        phoneIntent.setData(Uri.parse("tel:" + request.getCustomer().getPhoneNumber()));
+        phoneIntent.setData(Uri.parse("tel:" + request.getPhoneNumber()));
         startActivity(phoneIntent);
     }
 }

@@ -1,22 +1,22 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.waitingroom.R;
+import com.example.waitingroom.types.Business;
+import com.example.waitingroom.types.Caller;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -59,7 +59,7 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
 
-        final Caller employee = new Caller(usernameString, passwordString, business.getName());
+        final Caller employee = new Caller(usernameString, business.getName(), false);
 
         Map<String, Object> empMap = new HashMap<>();
         empMap.put(employee.getName(), employee);

@@ -1,4 +1,4 @@
-package com.example.waitingroom;
+package com.example.waitingroom.types;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,20 +9,18 @@ import java.util.HashMap;
  */
 public class Caller implements Serializable {
     private String name;
-    private String password;
     private boolean admin;
     private String employer;
 
     //Constructors
-    public Caller(String name, String password, String employer) {
+    public Caller(String name, String employer, Boolean admin) {
         this.name = name;
+        this.admin = admin;
         this.employer = employer;
-        this.password = password;
     }
     public Caller(HashMap<String, String> map) {
         this.name = map.get("name");
         this.employer = map.get("employer");
-        this.password = map.get("password");
     }
     public Caller(){}
 
@@ -39,9 +37,6 @@ public class Caller implements Serializable {
         return this.admin;
     }
 
-    public String getPassword(){
-        return this.password;
-    }
     //remove them from db
     public void fire(){
 

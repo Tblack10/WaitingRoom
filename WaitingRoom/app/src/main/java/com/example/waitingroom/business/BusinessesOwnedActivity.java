@@ -1,23 +1,19 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+import com.example.waitingroom.MyCallback;
+import com.example.waitingroom.NetworkManager;
+import com.example.waitingroom.R;
+import com.example.waitingroom.types.Business;
+import com.example.waitingroom.types.Customer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BusinessesOwnedActivity extends AppCompatActivity {
     String username;

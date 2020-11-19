@@ -1,8 +1,10 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.waitingroom.R;
 
 public class CallerListActivity extends AppCompatActivity {
 

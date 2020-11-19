@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CallRequestActivity">
+    tools:context=".customer.CallRequestActivity">
 
     <EditText
-        android:id="@+id/nameTextEdit"
+        android:id="@+id/requestName"
         android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -21,46 +21,51 @@
         app:layout_constraintTop_toBottomOf="@+id/businessLocationTextView" />
 
     <EditText
-        android:id="@+id/phoneNumberTextEdit"
+        android:id="@+id/requestPhoneNumber"
         android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:maxLength="10"
         android:hint="@string/callbackNum"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/requestName" />
 
     <EditText
-        android:id="@+id/reasonTextEdit"
+        android:id="@+id/requestDescription"
         android:layout_width="385dp"
         android:layout_height="240dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/callReason"
+        android:hint="@string/requestDescription"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/requestPhoneNumber" />
 
     <Button
         android:id="@+id/createButton"
         android:layout_width="184dp"
         android:layout_height="56dp"
         android:layout_marginStart="114dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="114dp"
-        android:text="@string/callRequest"
         android:onClick="createCall"
+        android:text="@string/callRequest"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reasonTextEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/requestDescription"
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
         android:id="@+id/headingTextView"
@@ -72,6 +77,7 @@
         android:text="@string/createCall"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,4 +1,4 @@
-package com.example.waitingroom;
+package com.example.waitingroom.business;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.waitingroom.R;
+import com.example.waitingroom.types.Business;
+import com.example.waitingroom.types.Caller;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -38,8 +40,8 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
             return;
         }
 
-        Caller admin = new Caller(adminUsername.getText().toString(), adminPassword.getText().toString(), businessName.getText().toString());
-        Business business = new Business(businessName.getText().toString(), businessLocation.getText().toString(), admin);
+        Caller admin = new Caller(adminUsername.getText().toString(), businessName.getText().toString(), false);
+        Business business = new Business(businessName.getText().toString().toLowerCase(), businessLocation.getText().toString(), admin);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         HashMap<String, Object> busMap= new HashMap<>();

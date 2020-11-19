@@ -17,6 +17,7 @@
     <string name="callbackNum">Your Phone Number</string>
     <string name="name">Your Name</string>
     <string name="createCall">Request a call</string>
+    <string name="invalidCall">Phone number is not acceptable. You are not acceptable.</string>
 
     <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
