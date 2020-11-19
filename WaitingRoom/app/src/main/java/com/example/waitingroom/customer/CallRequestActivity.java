@@ -38,13 +38,14 @@ public class CallRequestActivity extends AppCompatActivity {
     }
 
     public void createCall(View view) {
-        TextView requestName = findViewById(R.id.requestName);
-        TextView requestPhoneNumber = findViewById(R.id.requestPhoneNumber);
-        TextView requestDescription = findViewById(R.id.requestDescription);
+        String requestName = ((TextView) findViewById(R.id.requestName)).getText().toString();
+        String requestPhoneNumber = ((TextView) findViewById(R.id.requestPhoneNumber)).getText().toString();
+        String requestDescription = ((TextView) findViewById(R.id.requestDescription)).getText().toString();
+
         Pattern pattern = Pattern.compile("^\\d{10}$");
-        Matcher matcher = pattern.matcher(requestPhoneNumber.getText().toString());
-        if (matcher.matches()) {
-            Request request = new Request(requestName.getText().toString(), requestPhoneNumber.getText().toString(), requestDescription.getText().toString(), new Timestamp(System.currentTimeMillis()).toString());
+        Matcher matcher = pattern.matcher(requestPhoneNumber);
+        if (matcher.matches() && !requestName.isEmpty() && !requestDescription.isEmpty()) {
+            Request request = new Request(requestName, requestPhoneNumber, requestDescription, new Timestamp(System.currentTimeMillis()).toString());
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("Businesses").child(business.getName().toLowerCase()).child("requests");

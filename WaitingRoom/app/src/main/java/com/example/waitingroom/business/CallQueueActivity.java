@@ -41,6 +41,7 @@ public class CallQueueActivity extends AppCompatActivity {
                 Request temp = (Request) parent.getAdapter().getItem(position);
                 Intent intent = new Intent(CallQueueActivity.this, CallerDetailActivity.class);
                 intent.putExtra("Request", temp);
+                intent.putExtra("user", caller);
                 startActivity(intent);
             }
         });
@@ -48,14 +49,13 @@ public class CallQueueActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(caller.getEmployer().toLowerCase()).child("requests");
         Query myQuery = myRef.orderByChild("date");
-        myQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+        myQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Request> requestList = new ArrayList<Request>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Request temp = new Request(ds.child("name").getValue(String.class), ds.child("phoneNumber").getValue(String.class), ds.child("description").getValue(String.class), ds.child("date").getValue(String.class));
                     requestList.add(temp);
-                    Log.d("heyo", ds.child("name").getValue(String.class));
                 }
                 RequestAdapter arrayAdapter = new RequestAdapter(CallQueueActivity.this, requestList);
                 lv.setAdapter(arrayAdapter);

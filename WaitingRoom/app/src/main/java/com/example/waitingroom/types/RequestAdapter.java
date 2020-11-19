@@ -28,9 +28,11 @@ public class RequestAdapter extends ArrayAdapter<Request> {
         TextView name = convertView.findViewById(R.id.name);
         TextView description = convertView.findViewById(R.id.description);
         TextView date = convertView.findViewById(R.id.publishedAt);
+        TextView phoneNumber = convertView.findViewById(R.id.phoneNumber);
         name.setText(request.getName());
         description.setText(request.getDescription());
         date.setText(request.getDate());
+        phoneNumber.setText(request.getPhoneNumber().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3"));
         return convertView;
     }
 }

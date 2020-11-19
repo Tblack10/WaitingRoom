@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.waitingroom.R;
+import com.example.waitingroom.types.Caller;
 import com.example.waitingroom.types.Request;
 
 /**
@@ -17,18 +18,22 @@ import com.example.waitingroom.types.Request;
  */
 public class CallerDetailActivity extends AppCompatActivity {
     private Request request;
+    private Caller caller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caller_detail);
         Intent i = getIntent();
         request = (Request)i.getSerializableExtra("Request");
+        caller = (Caller) getIntent().getSerializableExtra("user");
+        TextView header = findViewById(R.id.Header);
+        header.setText(caller.getEmployer());
         TextView requestDescription = findViewById(R.id.requestDescription);
         requestDescription.setText(request.getDescription());
         TextView customerName = findViewById(R.id.customerName);
         customerName.setText(request.getName());
         TextView customerPhoneNumber = findViewById(R.id.customerPhoneNumber);
-        customerPhoneNumber.setText(request.getPhoneNumber());
+        customerPhoneNumber.setText(request.getPhoneNumber().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3"));
     }
 
     public void onCall(View v){

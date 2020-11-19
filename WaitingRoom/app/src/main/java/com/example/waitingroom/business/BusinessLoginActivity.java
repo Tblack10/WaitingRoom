@@ -44,7 +44,7 @@ public class BusinessLoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
                 DataSnapshot user = datasnapshot.child(username);
-                if(user.getValue() == null){
+                if(user.getValue() == null) {
                     Toast.makeText(BusinessLoginActivity.this, "No Such User!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -53,6 +53,7 @@ public class BusinessLoginActivity extends AppCompatActivity {
                     if (caller.isAdmin()) {
                         Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);
                         intent.putExtra("user", caller);
+                        
                         startActivity(intent);
                     } else {
                         Intent intent = new Intent(BusinessLoginActivity.this, CallQueueActivity.class);

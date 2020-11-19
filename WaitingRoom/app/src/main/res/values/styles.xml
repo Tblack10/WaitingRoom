@@ -8,5 +8,40 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="Generic_H1">
+        <item name="android:textSize">36sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0sp</item>
+        <item name="android:titleMarginEnd">0sp</item>
+    </style>
+    <style name="Generic_H2">
+        <item name="android:textSize">21sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0sp</item>
+        <item name="android:titleMarginEnd">0sp</item>
+    </style>
+    <style name="RequestNameStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0sp</item>
+        <item name="android:titleMarginEnd">0sp</item>
+    </style>
+    <style name="RequestDescriptionStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0sp</item>
+        <item name="android:titleMarginEnd">0sp</item>
+    </style>
+    <style name="RequestMinorStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0sp</item>
+        <item name="android:titleMarginEnd">0sp</item>
+    </style>
 
 </resources>
