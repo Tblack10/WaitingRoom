@@ -10,14 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.waitingroom.business.BusinessLoginActivity;
-import com.example.waitingroom.customer.CallRequestActivity;
+import com.example.waitingroom.business.EmployeeLoginActivity;
+import com.example.waitingroom.customer.CreateRequestActivity;
 import com.example.waitingroom.types.Business;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -28,10 +24,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ListView lv;
     private ArrayList<Business> businessList;
+    private ArrayAdapter<Business> businessListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_business_search);
+        setContentView(R.layout.activity_main);
         lv = findViewById(R.id.list);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                                     long arg3)
             {
                 Business value = (Business) adapter.getItemAtPosition(position);
-                Intent intent = new Intent(MainActivity.this, CallRequestActivity.class);
+                Intent intent = new Intent(MainActivity.this, CreateRequestActivity.class);
                 intent.putExtra("business", value);
                 startActivity(intent);
             }
@@ -50,39 +47,28 @@ public class MainActivity extends AppCompatActivity {
     public void searchForBusiness(View v) {
         EditText searchBar = findViewById(R.id.businessInfoTextEdit);
         final String searchText = searchBar.getText().toString().toLowerCase();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Businesses");
         businessList = new ArrayList<>();
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        NetworkManager.getBusinesses(new MyCallback() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onCallback(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (ds.getKey().toLowerCase().contains(searchText)) {
-                        businessList.add(new Business(ds.getKey()));
+                        businessList.add(new Business(ds.child("name").getValue(String.class)));
                     }
                 }
-                ArrayAdapter<Business> businessListAdapter;
                 businessListAdapter = new ArrayAdapter<Business>(
                         MainActivity.this, android.R.layout.simple_list_item_1, businessList
                 );
                 lv.setAdapter(businessListAdapter);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // ...
             }
         });
 
-//        Intent intent = new Intent(BusinessSearchActivity.this, BusinessListActivity.class);
-//        intent.putExtra("businesses", filteredBusiness);
-//        intent.putExtra("query", searchText);
-//        startActivity(intent);
+
+
     }
 
     public void goToBusinessLogin(View v) {
-        Intent intent = new Intent(MainActivity.this, BusinessLoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, EmployeeLoginActivity.class);
         startActivity(intent);
     }
 }

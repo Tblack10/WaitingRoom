@@ -1,4 +1,4 @@
-package com.example.waitingroom.business;
+package com.example.waitingroom.administration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.waitingroom.R;
 import com.example.waitingroom.types.Business;
-import com.example.waitingroom.types.Caller;
+import com.example.waitingroom.types.Employee;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,7 +40,7 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
             return;
         }
 
-        Caller admin = new Caller(adminUsername.getText().toString(), businessName.getText().toString(), false);
+        Employee admin = new Employee(adminUsername.getText().toString(), businessName.getText().toString(), false);
         Business business = new Business(businessName.getText().toString().toLowerCase(), businessLocation.getText().toString(), admin);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

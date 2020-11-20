@@ -1,4 +1,4 @@
-package com.example.waitingroom.business;
+package com.example.waitingroom.administration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.waitingroom.R;
 import com.example.waitingroom.types.Business;
-import com.example.waitingroom.types.Caller;
+import com.example.waitingroom.types.Employee;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * BusinessCreateUserActivity is for registering new employees to a business
  */
-public class BusinessCreateUserActivity extends AppCompatActivity {
+public class CreateEmployeeActivity extends AppCompatActivity {
     TextView username;
     TextView password;
     TextView passwordConfirm;
@@ -31,7 +31,7 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_business_create_user);
+        setContentView(R.layout.administration_create_employee);
         business = (Business) getIntent().getSerializableExtra("business");
     }
 
@@ -59,7 +59,7 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
 
-        final Caller employee = new Caller(usernameString, business.getName(), false);
+        final Employee employee = new Employee(usernameString, business.getName(), false);
 
         Map<String, Object> empMap = new HashMap<>();
         empMap.put(employee.getName(), employee);
@@ -67,7 +67,7 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         myRef.child(business.getName()).child("Employees").child(employee.getName()).updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(BusinessCreateUserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 return;
             };
         });
@@ -76,13 +76,13 @@ public class BusinessCreateUserActivity extends AppCompatActivity {
         myRef2.updateChildren(empMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Intent intent = new Intent(BusinessCreateUserActivity.this, BusinessesOwnedActivity.class);
+                Intent intent = new Intent(CreateEmployeeActivity.this, AdministrationActivity.class);
                 startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(BusinessCreateUserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             };
         });
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customer.CallRequestActivity">
+    tools:context=".customer.CreateRequestActivity">
 
     <EditText
         android:id="@+id/requestName"
@@ -17,7 +17,6 @@
         android:hint="@string/name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
 
@@ -33,16 +32,15 @@
         android:inputType="phone"
         android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/requestName" />
 
     <EditText
-        android:id="@+id/requestDescriptionLabel"
-        android:layout_width="385dp"
+        android:id="@+id/requestDescription"
+        android:layout_width="0dp"
         android:layout_height="240dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="start|top"
@@ -69,12 +67,14 @@
     <TextView
         android:id="@+id/headingTextView"
         style="@style/Generic_H2"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="149dp"
         android:gravity="center_horizontal"
         android:text="@string/createCall"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/businessNameTextView" />
 

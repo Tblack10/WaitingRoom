@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.waitingroom.R;
 import com.example.waitingroom.types.RequestAdapter;
-import com.example.waitingroom.types.Caller;
+import com.example.waitingroom.types.Employee;
 import com.example.waitingroom.types.Request;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,43 +25,44 @@ import java.util.ArrayList;
  * CallQueueActivity displays the list of customers requesting calls
  * clicking on a customer will display their details.
  */
-public class CallQueueActivity extends AppCompatActivity {
+public class RequestQueueActivity extends AppCompatActivity {
     private ListView lv;
-    Caller caller;
+    Employee employee;
+    Query myQuery;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_call_queue);
-        caller = (Caller) getIntent().getSerializableExtra("user");
+        setContentView(R.layout.business_call_queue);
+        employee = (Employee) getIntent().getSerializableExtra("user");
         lv = findViewById(R.id.list);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Request temp = (Request) parent.getAdapter().getItem(position);
-                Intent intent = new Intent(CallQueueActivity.this, CallerDetailActivity.class);
+
+                Intent intent = new Intent(RequestQueueActivity.this, RequestDetailActivity.class);
                 intent.putExtra("Request", temp);
-                intent.putExtra("user", caller);
+                intent.putExtra("user", employee);
                 startActivity(intent);
             }
         });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Businesses").child(caller.getEmployer().toLowerCase()).child("requests");
-        Query myQuery = myRef.orderByChild("date");
+        DatabaseReference myRef = database.getReference("Businesses").child(employee.getEmployer().toLowerCase()).child("requests");
+        myQuery = myRef.orderByChild("date");
         myQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<Request> requestList = new ArrayList<Request>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Request temp = new Request(ds.child("name").getValue(String.class), ds.child("phoneNumber").getValue(String.class), ds.child("description").getValue(String.class), ds.child("date").getValue(String.class));
+                    Request temp = ds.getValue(Request.class);
                     requestList.add(temp);
                 }
-                RequestAdapter arrayAdapter = new RequestAdapter(CallQueueActivity.this, requestList);
+                RequestAdapter arrayAdapter = new RequestAdapter(RequestQueueActivity.this, requestList);
                 lv.setAdapter(arrayAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // ...
             }
         });
 

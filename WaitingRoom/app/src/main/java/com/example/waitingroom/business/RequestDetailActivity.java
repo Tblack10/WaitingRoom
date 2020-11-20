@@ -9,25 +9,25 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.waitingroom.R;
-import com.example.waitingroom.types.Caller;
+import com.example.waitingroom.types.Employee;
 import com.example.waitingroom.types.Request;
 
 /**
  * CallerDetailActivity displays a customer's details such as name, number,
  * and reason for call.
  */
-public class CallerDetailActivity extends AppCompatActivity {
+public class RequestDetailActivity extends AppCompatActivity {
     private Request request;
-    private Caller caller;
+    private Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_caller_detail);
+        setContentView(R.layout.business_request_detail);
         Intent i = getIntent();
         request = (Request)i.getSerializableExtra("Request");
-        caller = (Caller) getIntent().getSerializableExtra("user");
+        employee = (Employee) getIntent().getSerializableExtra("user");
         TextView header = findViewById(R.id.Header);
-        header.setText(caller.getEmployer());
+        header.setText(employee.getEmployer());
         TextView requestDescription = findViewById(R.id.requestDescription);
         requestDescription.setText(request.getDescription());
         TextView customerName = findViewById(R.id.customerName);
@@ -38,7 +38,6 @@ public class CallerDetailActivity extends AppCompatActivity {
 
     public void onCall(View v){
         //TODO: remove this customer from queue
-
         Intent phoneIntent = new Intent(Intent.ACTION_CALL);
         phoneIntent.setData(Uri.parse("tel:" + request.getPhoneNumber()));
         startActivity(phoneIntent);

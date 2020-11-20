@@ -14,6 +14,6 @@ public class PositionInLIneActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_position_in_l_ine);
+        setContentView(R.layout.customer_position);
     }
 }

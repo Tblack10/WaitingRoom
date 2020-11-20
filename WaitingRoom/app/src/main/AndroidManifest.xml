@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".business.BusinessCreateUserActivity"></activity>
-        <activity android:name=".business.BusinessRegistrationActivity" />
+        <activity android:name=".administration.CreateEmployeeActivity"></activity>
+        <activity android:name=".administration.BusinessRegistrationActivity" />
         <activity android:name=".customer.PositionInLIneActivity" />
-        <activity android:name=".business.CallerDetailActivity" />
-        <activity android:name=".business.CallerListActivity" />
-        <activity android:name=".business.BusinessesOwnedActivity" />
-        <activity android:name=".business.BusinessLoginActivity" />
-        <activity android:name=".business.CallQueueActivity" />
-        <activity android:name=".customer.CallRequestActivity" />
-        <activity android:name=".business.BusinessListActivity" />
+        <activity android:name=".business.RequestDetailActivity" />
+        <activity android:name=".business.EmployeeListActivity" />
+        <activity android:name=".administration.AdministrationActivity" />
+        <activity android:name=".business.EmployeeLoginActivity" />
+        <activity android:name=".business.RequestQueueActivity" />
+        <activity android:name=".customer.CreateRequestActivity" />
+        <activity android:name=".administration.BusinessListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.waitingroom.business;
+package com.example.waitingroom.administration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.waitingroom.customer.CallRequestActivity;
+import com.example.waitingroom.customer.CreateRequestActivity;
 import com.example.waitingroom.R;
 import com.example.waitingroom.types.Business;
 
@@ -60,7 +60,7 @@ public class BusinessListActivity extends AppCompatActivity {
         listBusinesses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(BusinessListActivity.this, CallRequestActivity.class);
+                Intent intent = new Intent(BusinessListActivity.this, CreateRequestActivity.class);
                 intent.putExtra("businessName", businesses.get(i).getName());
 
                 startActivity(intent);

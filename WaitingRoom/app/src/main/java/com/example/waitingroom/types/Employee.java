@@ -7,22 +7,22 @@ import java.util.HashMap;
 /**
  * Employee of a business
  */
-public class Caller implements Serializable {
+public class Employee implements Serializable {
     private String name;
     private boolean admin;
     private String employer;
 
     //Constructors
-    public Caller(String name, String employer, Boolean admin) {
+    public Employee(String name, String employer, Boolean admin) {
         this.name = name;
         this.admin = admin;
         this.employer = employer;
     }
-    public Caller(HashMap<String, String> map) {
+    public Employee(HashMap<String, String> map) {
         this.name = map.get("name");
         this.employer = map.get("employer");
     }
-    public Caller(){}
+    public Employee(){}
 
     //Getters and Setters
     public String getName() { return this.name; }
