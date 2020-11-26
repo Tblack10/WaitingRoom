@@ -43,4 +43,7 @@
     <string name="admin">Admin username</string>
     <string name="adminPass">Admin Password</string>
     <string name="adminPassConfirm">Confirm password</string>
+    <string name="employeeManager">Manage Employees</string>
+    <string name="viewCallQueue">View Caller Queue</string>
+    <string name="newEmployee">Add New Employee</string>
 </resources>

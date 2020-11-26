@@ -29,4 +29,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greetingTextView" />
 
+    <Button
+        android:id="@+id/employeeManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="275dp"
+        android:text="@string/employeeManager"
+        android:onClick="manageEmployees"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/viewCallQueue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/viewCallQueue"
+        android:onClick="viewQueue"
+        app:layout_constraintStart_toStartOf="@+id/employeeManager"
+        app:layout_constraintTop_toBottomOf="@+id/employeeManager" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

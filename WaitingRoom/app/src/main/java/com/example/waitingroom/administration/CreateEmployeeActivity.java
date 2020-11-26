@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
@@ -41,6 +42,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.administration_create_employee);
         business = (Business) getIntent().getSerializableExtra("business");
+        Log.e("a", business.toString());
     }
 
 
@@ -70,40 +72,39 @@ public class CreateEmployeeActivity extends AppCompatActivity {
                     if (Objects.requireNonNull(ds.getKey()).toLowerCase().contains(usernameString)) {
                         Toast.makeText(getApplicationContext(), "Username already taken!", Toast.LENGTH_LONG).show();
                         return;
+                    } else{
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
+
+                        final Employee employee = new Employee(usernameString, business.getName(), false);
+
+                        Map<String, Object> empMap = new HashMap<>();
+                        empMap.put(employee.getName(), employee);
+
+                        myRef.child(business.getName()).child("Employees").child(employee.getName()).updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                            };
+                        });
+
+                        DatabaseReference myRef2 = database.getReference("Employees");
+                        myRef2.updateChildren(empMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent intent = new Intent(CreateEmployeeActivity.this, AdministrationActivity.class);
+                                startActivity(intent);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            };
+                        });
                     }
                 }
             }
         });
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
-
-        final Employee employee = new Employee(usernameString, business.getName(), false);
-
-        Map<String, Object> empMap = new HashMap<>();
-        empMap.put(employee.getName(), employee);
-
-        myRef.child(business.getName()).child("Employees").child(employee.getName()).updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                return;
-            };
-        });
-
-        DatabaseReference myRef2 = database.getReference("Employees");
-        myRef2.updateChildren(empMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Intent intent = new Intent(CreateEmployeeActivity.this, AdministrationActivity.class);
-                startActivity(intent);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(CreateEmployeeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            };
-        });
     }
-
 }
