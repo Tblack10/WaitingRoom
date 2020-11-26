@@ -74,7 +74,6 @@ public class NetworkManager{
                     if (ds.getKey().equals(request.getKey())) {
                         callback.onCallback(ds);
                     }
-
                 }
             }
             @Override

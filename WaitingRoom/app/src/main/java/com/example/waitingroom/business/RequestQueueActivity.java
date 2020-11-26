@@ -6,12 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.waitingroom.MainActivity;
+import com.example.waitingroom.MyCallback;
+import com.example.waitingroom.NetworkManager;
 import com.example.waitingroom.R;
+import com.example.waitingroom.types.Business;
 import com.example.waitingroom.types.RequestAdapter;
 import com.example.waitingroom.types.Employee;
 import com.example.waitingroom.types.Request;
+import com.example.waitingroom.types.RequestWrapper;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,25 +44,30 @@ public class RequestQueueActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Request temp = (Request) parent.getAdapter().getItem(position);
+                final RequestWrapper temp = (RequestWrapper) parent.getAdapter().getItem(position);
+                NetworkManager.getRequest(temp, employee, new MyCallback() {
+                    @Override
+                    public void onCallback(DataSnapshot dataSnapshot) {
+                        dataSnapshot.getRef().removeValue();
+                        Intent intent = new Intent(RequestQueueActivity.this, RequestDetailActivity.class);
+                        intent.putExtra("Request", temp);
+                        intent.putExtra("user", employee);
+                        startActivity(intent);
+                    }
+                });
 
-                Intent intent = new Intent(RequestQueueActivity.this, RequestDetailActivity.class);
-                intent.putExtra("Request", temp);
-                intent.putExtra("user", employee);
-                startActivity(intent);
             }
         });
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(employee.getEmployer().toLowerCase()).child("requests");
         myQuery = myRef.orderByChild("date");
         myQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<Request> requestList = new ArrayList<Request>();
+                ArrayList<RequestWrapper> requestList = new ArrayList<RequestWrapper>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Request temp = ds.getValue(Request.class);
-                    requestList.add(temp);
+                    requestList.add(new RequestWrapper(ds.getKey(), temp));
                 }
                 RequestAdapter arrayAdapter = new RequestAdapter(RequestQueueActivity.this, requestList);
                 lv.setAdapter(arrayAdapter);

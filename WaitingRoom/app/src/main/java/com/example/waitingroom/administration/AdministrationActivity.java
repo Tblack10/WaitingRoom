@@ -16,7 +16,6 @@ public class AdministrationActivity extends AppCompatActivity {
         setContentView(R.layout.administration_administration);
         user = (Employee) getIntent().getSerializableExtra("user");
         setWelcomeMessage(user.getName());
-
     }
 
     private void setWelcomeMessage(String name) {
