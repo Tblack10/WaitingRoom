@@ -54,6 +54,23 @@ public class NetworkManager{
         };
         query.addListenerForSingleValueEvent(customerListener);
     }
+    static public void getEmployees(final MyCallback callback) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        Query query = myRef.child("Employees");
+        ValueEventListener customerListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                callback.onCallback(dataSnapshot);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting User failed, log a message
+            }
+        };
+        query.addListenerForSingleValueEvent(customerListener);
+    }
 
 }
 

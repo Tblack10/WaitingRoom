@@ -6,19 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.waitingroom.MainActivity;
+import com.example.waitingroom.MyCallback;
+import com.example.waitingroom.NetworkManager;
 import com.example.waitingroom.R;
 import com.example.waitingroom.types.Business;
 import com.example.waitingroom.types.Employee;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
 /**
  * BusinessCreateUserActivity is for registering new employees to a business
  */
@@ -37,7 +45,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
 
 
     public void createUser(View v) {
-        String usernameString;
+        final String usernameString;
         String passwordString;
         String confirmPasswordString;
 
@@ -50,11 +58,22 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         confirmPasswordString = passwordConfirm.getText().toString();
 
         //Validation
-        //TODO make sure username is unique in db
+
         if(!passwordString.equals(confirmPasswordString)){
             Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_LONG).show();
             return;
         }
+        NetworkManager.getEmployees(new MyCallback() {
+            @Override
+            public void onCallback(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.requireNonNull(ds.getKey()).toLowerCase().contains(usernameString)) {
+                        Toast.makeText(getApplicationContext(), "Username already taken!", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+            }
+        });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(business.getName()).child("Employees");
