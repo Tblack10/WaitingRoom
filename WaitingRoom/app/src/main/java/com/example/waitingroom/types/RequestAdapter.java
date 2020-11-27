@@ -11,17 +11,17 @@ import com.example.waitingroom.R;
 import com.example.waitingroom.types.Request;
 
 import java.util.ArrayList;
-public class RequestAdapter extends ArrayAdapter<Request> {
+public class RequestAdapter extends ArrayAdapter<RequestWrapper> {
     final Context _context;
 
-    public RequestAdapter(Context context, ArrayList<Request> Requests) {
+    public RequestAdapter(Context context, ArrayList<RequestWrapper> Requests) {
         super(context, 0, Requests);
         _context = context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Request request = getItem(position);
+        Request request = getItem(position).getRequest();
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_row_request_layout, parent, false);
         }

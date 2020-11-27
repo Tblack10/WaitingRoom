@@ -37,10 +37,6 @@ public class Employee implements Serializable {
         return this.admin;
     }
 
-    //remove them from db
-    public void fire(){
-
-    }
     public String toString() { return this.name; }
 
     public String getEmployer() {

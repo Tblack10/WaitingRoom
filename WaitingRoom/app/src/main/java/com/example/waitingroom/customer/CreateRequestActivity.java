@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -117,12 +116,6 @@ public class CreateRequestActivity extends AppCompatActivity {
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(PhoneAuthCredential credential) {
-            // This callback will be invoked in two situations:
-            // 1 - Instant verification. In some cases the phone number can be instantly
-            //     verified without needing to send or enter a verification code.
-            // 2 - Auto-retrieval. On some devices Google Play services can automatically
-            //     detect the incoming verification SMS and perform verification without
-            //     user action.
             String code = credential.getSmsCode();
             if (code != null) {
                 verifyCode(code);
@@ -141,7 +134,7 @@ public class CreateRequestActivity extends AppCompatActivity {
             }
 
         }
-
+\\
         @Override
         public void onCodeSent(@NonNull String verificationId,
                 @NonNull PhoneAuthProvider.ForceResendingToken token) {
