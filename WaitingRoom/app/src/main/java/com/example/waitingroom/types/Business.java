@@ -9,24 +9,20 @@ import java.util.ArrayList;
 public class Business implements Serializable {
     private String name;
     private String location;
-    private ArrayList<Employee> employees = new ArrayList<>();
 
     //Constructors
     public Business(String name) {
         this.name = name;
     }
-    public Business(String name, String location, Employee admin){
+    public Business(String name, String location){
         this.name = name;
         this.location = location;
-        admin.setAdmin(true);
-        employees.add(admin);
     }
     public Business() {}
 
     //Getters & Setters
     public String getName() { return name; }
     public String getLocation() { return location; }
-    public ArrayList<Employee> getEmployees(){return employees;}
 
 
     public void setName(String name) { this.name = name; }

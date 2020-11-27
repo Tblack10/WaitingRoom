@@ -17,24 +17,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/callerList"
+        android:id="@+id/employeeList"
         android:layout_width="348dp"
         android:layout_height="0dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="64dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/call"
+        android:layout_marginBottom="106dp"
+        app:layout_constraintBottom_toTopOf="@+id/newEmployee"
         app:layout_constraintStart_toStartOf="@+id/callerListTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/call"
+        android:id="@+id/newEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="141dp"
-        android:text="@string/call"
+        android:layout_marginBottom="113dp"
+        android:onClick="createEmployee"
+        android:text="@string/newEmployee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/callerList" />
+        app:layout_constraintTop_toBottomOf="@+id/employeeList" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,9 @@ package com.example.waitingroom.administration;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ import com.example.waitingroom.R;
 import com.example.waitingroom.types.Business;
 import com.example.waitingroom.types.Employee;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,7 +35,7 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
         TextView businessName = findViewById(R.id.businessNameInput);
         TextView businessLocation = findViewById(R.id.businessLocationInput);
         TextView adminUsername = findViewById(R.id.adminUsernameInput);
-        TextView adminPassword = findViewById(R.id.adminPasswordInput);
+        final TextView adminPassword = findViewById(R.id.adminPasswordInput);
         TextView adminPasswordConfirm = findViewById(R.id.adminPasswordConfirmInput);
 
         if(!adminPassword.getText().toString().equals(adminPasswordConfirm.getText().toString())){
@@ -40,24 +43,32 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
             return;
         }
 
-        Employee admin = new Employee(adminUsername.getText().toString(), businessName.getText().toString(), false);
-        Business business = new Business(businessName.getText().toString().toLowerCase(), businessLocation.getText().toString(), admin);
+        final Employee admin = new Employee(adminUsername.getText().toString(), businessName.getText().toString(), true);
+        Business business = new Business(businessName.getText().toString().toLowerCase(), businessLocation.getText().toString());
+        HashMap<String, Object> busMap = new HashMap<>();
+        busMap.put(business.getName(), business);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        HashMap<String, Object> busMap= new HashMap<>();
-        busMap.put(business.getName(), business);
         DatabaseReference myRef = database.getReference("Businesses");
         myRef.updateChildren(busMap).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                Log.e("a", "failed to update");
                 Toast.makeText(BusinessRegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                return;
             }
         });
-        DatabaseReference myRef2 = database.getReference("Employees");
+        final DatabaseReference myRef2 = database.getReference("Employees");
         HashMap<String, Object> empMap= new HashMap<>();
         empMap.put(admin.getName(), admin);
-        myRef2.updateChildren(empMap).addOnFailureListener(new OnFailureListener() {
+        myRef2.updateChildren(empMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                myRef2.child(admin.getName()).child("password").setValue(adminPassword.getText().toString());
+                Intent intent = new Intent(BusinessRegistrationActivity.this, AdministrationActivity.class);
+                intent.putExtra("user", admin);
+                startActivity(intent);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(BusinessRegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
