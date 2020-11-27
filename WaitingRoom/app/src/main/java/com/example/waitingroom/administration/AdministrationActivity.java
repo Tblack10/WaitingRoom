@@ -27,18 +27,12 @@ public class AdministrationActivity extends AppCompatActivity {
         setContentView(R.layout.administration_administration);
         user = (Employee) getIntent().getSerializableExtra("user");
         setWelcomeMessage(user.getName());
-
     }
 
     private void setWelcomeMessage(String name) {
         TextView greetingTextView = findViewById(R.id.greetingTextView);
         greetingTextView.setText("Welcome, " + name + "!");
     }
-
-    private void configureListAdapter() {
-
-    }
-
 
     public void manageEmployees(View view) {
         Intent intent = new Intent(AdministrationActivity.this, EmployeeListActivity.class);
@@ -47,7 +41,7 @@ public class AdministrationActivity extends AppCompatActivity {
     }
 
     public void viewQueue(View view) {
-        Intent intent = new Intent(AdministrationActivity.this, RequestDetailActivity.class);
+        Intent intent = new Intent(AdministrationActivity.this, RequestQueueActivity.class);
         intent.putExtra("user", user);
         startActivity(intent);
     }

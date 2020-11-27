@@ -46,4 +46,9 @@
     <string name="employeeManager">Manage Employees</string>
     <string name="viewCallQueue">View Caller Queue</string>
     <string name="newEmployee">Add New Employee</string>
+    <string name="empName">Current Username:</string>
+    <string name="changePass">Enter New Password:</string>
+    <string name="confirmPassword">Confirm Password:</string>
+    <string name="update">Update Employee</string>
+    <string name="delete">Delete Employee</string>
 </resources>
