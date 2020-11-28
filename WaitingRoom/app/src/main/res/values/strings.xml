@@ -8,7 +8,7 @@
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
 
-    <string name="callerList">Caller List</string>
+    <string name="callerList">Employee List</string>
     <string name="call">Call Selected</string>
 
     <!--    Call Request Activity   -->
