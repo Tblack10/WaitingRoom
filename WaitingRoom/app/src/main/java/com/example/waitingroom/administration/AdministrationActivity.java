@@ -34,6 +34,12 @@ public class AdministrationActivity extends AppCompatActivity {
         greetingTextView.setText("Welcome, " + name + "!");
     }
 
+    public void businessDetail(View view) {
+        Intent intent = new Intent(AdministrationActivity.this, BusinessDetailActivity.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
+    }
+
     public void manageEmployees(View view) {
         Intent intent = new Intent(AdministrationActivity.this, EmployeeListActivity.class);
         intent.putExtra("user", user);

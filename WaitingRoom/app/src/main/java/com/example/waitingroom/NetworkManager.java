@@ -57,6 +57,30 @@ public class NetworkManager{
         };
         query.addListenerForSingleValueEvent(customerListener);
     }
+    /**
+     * Queries the database for all businesses
+     * @param callback implements MyCallback
+     */
+    static public void getBusiness(final String businessName, final MyCallback callback) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        Query query = myRef.child("Businesses");
+        ValueEventListener customerListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (ds.getKey().equals(businessName)) {
+                        callback.onCallback(ds);
+                    }
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        query.addListenerForSingleValueEvent(customerListener);
+    }
   
     static public void getEmployees(final MyCallback callback) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();

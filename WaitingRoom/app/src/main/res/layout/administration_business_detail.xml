@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".administration.AdministrationActivity">
+    tools:context=".administration.BusinessDetailActivity">
 
 
     <TextView
@@ -22,43 +22,45 @@
 
     <ListView
         android:id="@+id/businessListView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        style="@style/Generic_H2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greetingTextView" />
 
-    <Button
-        android:id="@+id/employeeManager"
+    <EditText
+        android:id="@+id/businessLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="275dp"
-        android:text="@string/employeeManager"
-        android:onClick="manageEmployees"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
-    <Button
-        android:id="@+id/viewCallQueue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/locationLabel"
+        android:layout_width="175dp"
+        android:layout_height="58dp"
         android:layout_marginStart="124dp"
-        android:layout_marginTop="40dp"
-        android:onClick="viewQueue"
-        android:text="@string/viewCallQueue"
+        android:layout_marginTop="48dp"
+        android:text="@string/locationLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/businessDetail" />
+        app:layout_constraintTop_toTopOf="@+id/businessListView" />
 
     <Button
-        android:id="@+id/businessDetail"
-        android:layout_width="164dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="32dp"
-        android:onClick="businessDetail"
-        android:text="@string/updateLocation"
-        app:layout_constraintStart_toStartOf="@+id/employeeManager"
-        app:layout_constraintTop_toBottomOf="@+id/employeeManager" />
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="52dp"
+        android:onClick="updateBusiness"
+        android:text="@string/businessUpdateButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/businessLocation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

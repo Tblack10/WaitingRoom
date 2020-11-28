@@ -134,7 +134,6 @@ public class CreateRequestActivity extends AppCompatActivity {
             }
 
         }
-\\
         @Override
         public void onCodeSent(@NonNull String verificationId,
                 @NonNull PhoneAuthProvider.ForceResendingToken token) {
@@ -182,7 +181,6 @@ public class CreateRequestActivity extends AppCompatActivity {
                 } else {
                     System.out.println("Auth unsuccessful");
                 }
-
             }
         });
     }
