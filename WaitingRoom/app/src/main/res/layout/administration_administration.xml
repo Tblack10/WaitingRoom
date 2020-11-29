@@ -11,9 +11,9 @@
         android:id="@+id/greetingTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
         android:text="Welcome"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,34 +31,41 @@
 
     <Button
         android:id="@+id/employeeManager"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="275dp"
-        android:text="@string/employeeManager"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="75dp"
         android:onClick="manageEmployees"
+        android:text="@string/employeeManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/greetingTextView" />
 
     <Button
         android:id="@+id/viewCallQueue"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="75dp"
         android:onClick="viewQueue"
         android:text="@string/viewCallQueue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/businessDetail" />
 
     <Button
         android:id="@+id/businessDetail"
-        android:layout_width="164dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="75dp"
         android:onClick="businessDetail"
         android:text="@string/updateLocation"
-        app:layout_constraintStart_toStartOf="@+id/employeeManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/employeeManager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

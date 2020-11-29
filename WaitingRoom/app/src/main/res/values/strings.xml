@@ -5,7 +5,7 @@
     <string name="loginButton">Login</string>
 
     <!--    Business Detail Activity    -->
-    <string name="updateLocation">Update Location</string>
+    <string name="updateLocation">Update Your Location</string>
     <string name="locationLabel">Location</string>
     <string name="businessUpdateButton">Update</string>
 
@@ -14,7 +14,7 @@
     <string name="loginOrReg">Login / Register</string>
     <string name="placeholderTextSearch">Business Name / Phone #</string>
 
-    <string name="callerList">Caller List</string>
+    <string name="callerList">Employee List</string>
     <string name="call">Call Selected</string>
 
     <!--    Call Request Activity   -->
@@ -54,7 +54,7 @@
     <string name="viewCallQueue">View Caller Queue</string>
     <string name="newEmployee">Add New Employee</string>
     <string name="empName">Current Username:</string>
-    <string name="changePass">Enter New Password:</string>
+    <string name="changePass">New Password:</string>
     <string name="confirmPassword">Confirm Password:</string>
     <string name="update">Update Employee</string>
     <string name="delete">Delete Employee</string>
