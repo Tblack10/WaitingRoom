@@ -15,7 +15,7 @@
         <activity android:name=".administration.CreateEmployeeActivity" />
         <activity android:name=".administration.BusinessDetailActivity" />
         <activity android:name=".administration.BusinessRegistrationActivity" />
-        <activity android:name=".customer.PositionInLIneActivity" />
+        <activity android:name=".customer.PositionInLineActivity" />
         <activity android:name=".business.RequestDetailActivity" />
         <activity android:name=".business.EmployeeListActivity" />
         <activity android:name=".administration.AdministrationActivity" />

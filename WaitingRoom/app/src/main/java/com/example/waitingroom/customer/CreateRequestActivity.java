@@ -155,9 +155,9 @@ public class CreateRequestActivity extends AppCompatActivity {
 
     //Goes to the PositionInLine activity
     private void showPositionInLineActivity() {
-        Intent intent = new Intent(CreateRequestActivity.this, PositionInLIneActivity.class);
+        Intent intent = new Intent(CreateRequestActivity.this, PositionInLineActivity.class);
         intent.putExtra("request", request);
-
+        intent.putExtra("business", business);
         startActivity(intent);
     }
 

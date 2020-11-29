@@ -25,6 +25,7 @@
     <string name="createCall">Request a call</string>
     <string name="invalidField">This field can\'t be as empty as your life is.</string>
     <string name="invalidNumber">Phone number is not acceptable. You are not acceptable.</string>
+    <string name="position">Your Position in Line</string>
 
     <!--    Business Login Activity   -->
     <string name="businessLogin">Business Login</string>
