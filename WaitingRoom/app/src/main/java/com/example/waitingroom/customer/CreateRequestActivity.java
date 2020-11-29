@@ -144,6 +144,13 @@ public class CreateRequestActivity extends AppCompatActivity {
             //Log.d(TAG, "onCodeSent:" + verificationId);
             System.out.println("sent");
             validationCodeSent = verificationId;
+
+            TextView verificationField = findViewById(R.id.verificationCodeTextField);
+            Button verifyButton = findViewById(R.id.submitVerificationCodeButton);
+
+            verificationField.setVisibility(View.VISIBLE);
+            verifyButton.setVisibility(View.VISIBLE);
+
         }
     };
 
