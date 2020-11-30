@@ -75,7 +75,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         final DatabaseReference myRef = database.getReference("Employees");
 
-                        final Employee employee = new Employee(usernameString, user.getEmployer(), false);
+                        final Employee employee = new Employee(usernameString, user.getEmployer().toLowerCase(), false);
                         Map<String, Object> empMap = new HashMap<>();
                         empMap.put(employee.getName(), employee);
                         Log.e("a", empMap.toString());

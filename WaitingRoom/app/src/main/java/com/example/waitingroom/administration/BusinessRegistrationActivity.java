@@ -43,7 +43,7 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
             return;
         }
 
-        final Employee admin = new Employee(adminUsername.getText().toString(), businessName.getText().toString(), true);
+        final Employee admin = new Employee(adminUsername.getText().toString(), businessName.getText().toString().toLowerCase(), true);
         Business business = new Business(businessName.getText().toString().toLowerCase(), businessLocation.getText().toString());
         HashMap<String, Object> busMap = new HashMap<>();
         busMap.put(business.getName(), business);

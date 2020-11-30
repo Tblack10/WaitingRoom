@@ -9,6 +9,7 @@ public class RequestWrapper implements Serializable {
     public RequestWrapper(String key, Request request) {
         this.request = request;
         this.key = key;
+
     }
     public Request getRequest() {
         return request;
