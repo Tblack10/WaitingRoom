@@ -35,6 +35,11 @@ public class RequestQueueActivity extends AppCompatActivity {
     private ListView lv;
     Employee employee;
     Query myQuery;
+
+    /**
+     * Generates a list of request objects from the firebase database.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,10 @@ public class RequestQueueActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 final RequestWrapper temp = (RequestWrapper) parent.getAdapter().getItem(position);
                 NetworkManager.getRequest(temp, employee, new MyCallback() {
+                    /**
+                     * Deletes the selected request, then redirects to RequestDetailActivity with the request.
+                     * @param dataSnapshot
+                     */
                     @Override
                     public void onCallback(DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().removeValue();
@@ -58,6 +67,9 @@ public class RequestQueueActivity extends AppCompatActivity {
 
             }
         });
+        /**
+         * Populates the request list.
+         */
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Businesses").child(employee.getEmployer().toLowerCase()).child("requests");
         myQuery = myRef.orderByChild("date");

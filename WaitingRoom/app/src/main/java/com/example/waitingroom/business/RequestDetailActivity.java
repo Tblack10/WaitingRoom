@@ -17,8 +17,8 @@ import com.example.waitingroom.types.Request;
 import com.example.waitingroom.types.RequestWrapper;
 
 /**
- * CallerDetailActivity displays a customer's details such as name, number,
- * and reason for call.
+ * RequestDetailActivity shows details for a selected request and allows the
+ * employee to call the request creator.
  */
 public class RequestDetailActivity extends AppCompatActivity {
     private RequestWrapper request;
@@ -40,6 +40,10 @@ public class RequestDetailActivity extends AppCompatActivity {
         customerPhoneNumber.setText(request.getRequest().getPhoneNumber().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3"));
     }
 
+    /**
+     * Calls the request's telephone number.
+     * @param v
+     */
     public void onCall(View v){
         Intent phoneIntent = new Intent(Intent.ACTION_CALL);
         phoneIntent.setData(Uri.parse("tel:" + request.getRequest().getPhoneNumber()));

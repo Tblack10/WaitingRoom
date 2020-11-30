@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv;
     private ArrayList<Business> businessList;
     private ArrayAdapter<Business> businessListAdapter;
+
+    /**
+     * Instantiates the OnItemClick behavior for lv.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Generates a list of businesses from firebase that contains the user entered text.
+     * @param v
+     */
     public void searchForBusiness(View v) {
         EditText searchBar = findViewById(R.id.businessInfoTextEdit);
         final String searchText = searchBar.getText().toString().toLowerCase();
