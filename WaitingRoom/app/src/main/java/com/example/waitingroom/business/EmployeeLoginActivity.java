@@ -35,6 +35,11 @@ public class EmployeeLoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Checks firebase for whether an employee exists in firebase with the matching password, then starts either AdministrationActivity or
+     * RequestDetailActivity depending on the employee's admin status.
+     * @param v
+     */
     public void login(View v) {
         TextView nameField = findViewById(R.id.name);
         TextView passwordField = findViewById(R.id.password);
@@ -66,6 +71,10 @@ public class EmployeeLoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Redirects to BusinessRegistrationActivity.
+     * @param v
+     */
     public void register(View v) {
         Intent intent = new Intent(EmployeeLoginActivity.this, BusinessRegistrationActivity.class);
         startActivity(intent);

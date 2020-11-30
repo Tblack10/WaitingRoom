@@ -28,7 +28,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
+/**
+ * Activity for showing details of a selected Employee in EmployeeListActivity.
+ */
 public class EmployeeDetailActivity extends AppCompatActivity {
     Employee user;
     Employee employee;
@@ -50,6 +52,10 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         empNameET.setText(employee.getName());
     }
 
+    /**
+     * Validates entered fields for an employee and updates the values on firebase if they are found to be valid.
+     * @param view
+     */
     public void update(View view) {
         final String empPassString = empPass.getText().toString();
         if(!empPassString.equals(empPassConf.getText().toString())){
