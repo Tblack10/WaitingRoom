@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCallback(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (ds.getKey().toLowerCase().contains(searchText)) {
-                        businessList.add(new Business(ds.child("name").getValue(String.class)));
+                        businessList.add(new Business(ds.child("name").getValue(String.class), ds.child("location").getValue(String.class)));
                     }
                 }
                 businessListAdapter = new ArrayAdapter<Business>(

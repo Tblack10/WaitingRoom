@@ -53,6 +53,10 @@ public class CreateRequestActivity extends AppCompatActivity {
         TextView businessNameTextView = findViewById(R.id.businessNameTextView);
         businessNameTextView.setText(business.getName());
 
+        TextView requestCall = findViewById(R.id.headingTextView);
+        System.out.println(business.getLocation());
+        requestCall.setText(business.getLocation());
+
         Button button = findViewById(R.id.submitVerificationCodeButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
