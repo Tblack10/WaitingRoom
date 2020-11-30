@@ -45,4 +45,6 @@ public class RequestDetailActivity extends AppCompatActivity {
         phoneIntent.setData(Uri.parse("tel:" + request.getRequest().getPhoneNumber()));
         startActivity(phoneIntent);
     }
+
+
 }

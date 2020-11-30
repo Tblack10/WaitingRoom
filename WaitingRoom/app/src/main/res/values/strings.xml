@@ -58,4 +58,5 @@
     <string name="confirmPassword">Confirm Password:</string>
     <string name="update">Update Employee</string>
     <string name="delete">Delete Employee</string>
+    <string name="logout">Logout</string>
 </resources>

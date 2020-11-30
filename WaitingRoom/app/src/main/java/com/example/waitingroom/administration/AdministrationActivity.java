@@ -51,4 +51,9 @@ public class AdministrationActivity extends AppCompatActivity {
         intent.putExtra("user", user);
         startActivity(intent);
     }
+
+    public void goToMainMenu(View view) {
+        Intent intent = new Intent(AdministrationActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
