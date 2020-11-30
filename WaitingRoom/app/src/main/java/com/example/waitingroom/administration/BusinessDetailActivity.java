@@ -22,17 +22,18 @@ import com.example.waitingroom.types.RequestWrapper;
 import com.google.firebase.database.DataSnapshot;
 
 /**
- * CallerDetailActivity displays a customer's details such as name, number,
- * and reason for call.
+ * BusinessDetailActivity displays a business's details such as name, and location.
  */
 public class BusinessDetailActivity extends AppCompatActivity {
     private Business business;
     private Employee employee;
     @Override
+    /**
+     * shows the businesses details
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.administration_business_detail);
-        Intent i = getIntent();
         employee = (Employee) getIntent().getSerializableExtra("user");
         NetworkManager.getBusiness(employee.getEmployer(), new MyCallback() {
             @Override
@@ -43,6 +44,11 @@ public class BusinessDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * update business changes the location of the business to the input location
+     * @param view the view
+     */
     public void updateBusiness(View view) {
         if (business != null) {
             NetworkManager.getBusiness(employee.getEmployer(), new MyCallback() {

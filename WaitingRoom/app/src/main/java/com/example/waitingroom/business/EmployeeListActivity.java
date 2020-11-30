@@ -21,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * Employee List Activity handles the list of employees accessible to admin accounts
+ */
 public class EmployeeListActivity extends AppCompatActivity {
     Employee user;
     ListView lv;
@@ -30,6 +33,7 @@ public class EmployeeListActivity extends AppCompatActivity {
         setContentView(R.layout.administration_employee_list);
         user = (Employee) getIntent().getSerializableExtra("user");
         lv = findViewById(R.id.employeeList);
+        // setting the onclick listeners for the list
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -61,6 +65,10 @@ public class EmployeeListActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * create employee redirects to the createEmployeeActivity
+     * @param view the view
+     */
     public void createEmployee(View view) {
         Intent intent = new Intent(EmployeeListActivity.this, CreateEmployeeActivity.class);
         intent.putExtra("user", user);

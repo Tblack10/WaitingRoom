@@ -37,12 +37,18 @@ public class BusinessListActivity extends AppCompatActivity {
         configureSearchTextView();
     }
 
+    /**
+     * sets the title to the given business's name
+     */
     private void configureSearchTextView() {
         String queryParam = (String) getIntent().getExtras().get("query");
         TextView titleText = findViewById(R.id.queryTextView);
         titleText.setText(queryParam);
     }
 
+    /**
+     * configureListAdapter configures the list
+     */
     private void configureListAdapter() {
         listBusinesses = findViewById(R.id.businessListView);
 
@@ -56,6 +62,10 @@ public class BusinessListActivity extends AppCompatActivity {
         listBusinesses.setAdapter(businessListAdapter);
     }
 
+    /**
+     * Sets the onclicklistener for each business shown in the list, inputs the business into the
+     * intent then redirects to the createRequestActivity
+     */
     private void setListItemClickListener() {
         listBusinesses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 /**
- *
+ *  BusinessRegistrationActivity is used to register a new business within the app
  */
 public class BusinessRegistrationActivity extends AppCompatActivity {
 
@@ -31,6 +31,11 @@ public class BusinessRegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business_registration);
     }
 
+    /**
+     * register business validates the inputs and creates a new business in our database
+     * also handles creation and validation of an admin account
+     * @param view the view
+     */
     public void registerBusiness(View view) {
         TextView businessName = findViewById(R.id.businessNameInput);
         TextView businessLocation = findViewById(R.id.businessLocationInput);

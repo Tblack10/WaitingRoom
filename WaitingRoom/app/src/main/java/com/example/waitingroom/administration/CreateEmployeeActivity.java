@@ -45,7 +45,11 @@ public class CreateEmployeeActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Create user handles validation and creation of users as well as their persistance
+     * by adding them to our firebase realtime database
+     * @param v the view
+     */
     public void createUser(View v) {
         final String usernameString;
         final String passwordString;
