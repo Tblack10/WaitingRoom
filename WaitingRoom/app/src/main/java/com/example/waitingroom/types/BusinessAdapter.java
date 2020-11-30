@@ -13,9 +13,17 @@ import com.example.waitingroom.types.Request;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for the Business model
+ */
 public class BusinessAdapter extends ArrayAdapter<Request> {
     final Context _context;
 
+    /**
+     * Adapter for the business object
+     * @param context
+     * @param Requests
+     */
     public BusinessAdapter(Context context, ArrayList<Request> Requests) {
         super(context, 0, Requests);
         _context = context;
